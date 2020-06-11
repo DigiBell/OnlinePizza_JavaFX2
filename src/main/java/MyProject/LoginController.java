@@ -117,7 +117,7 @@ public class LoginController  {
      */
     private String checkUser(String email, String password){
         if(!email.isEmpty() && !password.isEmpty()){
-            if(mainController.findAccount(email, password) == null){ //         -----//CALL TO DATABASE//-----
+            if(mainController.findAccountByEmailPassword(email, password) == null){ //         -----//CALL TO DATABASE//-----
                 alert = new Alert(Alert.AlertType.ERROR, "Email or password is incorrect.", ButtonType.OK);
                 alert.showAndWait();
                 if (alert.getResult() == ButtonType.OK) {

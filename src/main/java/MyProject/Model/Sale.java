@@ -6,14 +6,39 @@ import java.util.Date;
 
 public class Sale {
     private ObjectId id;
-    @BsonProperty(value="product_id")
     private int productId;
-    @BsonProperty(value="product_id")
     private int orderId;
     private String productName;
+    private String productCategory;
     private Date date;
     private int quantity;
     private int price;
+
+    public Sale(){}
+
+    public Sale(int productId, int orderId, String productName, String productCategory, Date date, int quantity, int price) {
+        this.productId = productId;
+        this.orderId = orderId;
+        this.productName = productName;
+        this.productCategory = productCategory;
+        this.date = date;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Sale{" +
+                "id=" + id +
+                ", productId=" + productId +
+                ", orderId=" + orderId +
+                ", productName='" + productName + '\'' +
+                ", productCategory='" + productCategory + '\'' +
+                ", date=" + date +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                '}';
+    }
 
     public ObjectId getId() {
         return id;
@@ -47,6 +72,14 @@ public class Sale {
         this.productName = productName;
     }
 
+    public String getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -69,18 +102,5 @@ public class Sale {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Sale{" +
-                "id=" + id +
-                ", productId=" + productId +
-                ", orderId=" + orderId +
-                ", productName='" + productName + '\'' +
-                ", date=" + date +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                '}';
     }
 }

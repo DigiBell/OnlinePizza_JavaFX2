@@ -18,7 +18,6 @@ import java.util.List;
 public class CreateAccountController {
     @FXML private MainController mainController;
     @FXML private LoginController loginController;
-    @FXML private TextField create_person_number_field;
     @FXML private TextField create_email_field;
     @FXML private TextField create_password_field;
     @FXML private TextField create_first_name_field;
@@ -34,6 +33,7 @@ public class CreateAccountController {
     private Alert alert;
     private Stage stage;
     private FXMLLoader loader;
+    private Account newAccount = new Account();
 
     @FXML
     private void initialize(){
@@ -48,28 +48,31 @@ public class CreateAccountController {
      * @throws Exception if scene cant be found.
      */
     public void createNewAccount(ActionEvent event)throws Exception{
-        String email = "existing@gmail.com";
-        //String email  = searchForAccount(by email)                  ----//DATABASE CALL//---- create_email_field.getText()
-        if(email.equals(create_email_field.getText())){
-            alert = new Alert(Alert.AlertType.ERROR, "Account with this email already exist", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                create_email_field.clear();
-                create_email_field.requestFocus();
-            }
-        }else{
-            if(getUserInput()){//get all data from textfields and send it to database
-                //sendNewUserAccountToDatabase(mainController.getNewAccount()); // method that creates a Document and send it to Database
-                alert = new Alert(Alert.AlertType.CONFIRMATION, "Account has been succesfully created", ButtonType.OK);
+        if(getUserInput()){
+            if(mainController.findAccountByEmail(newAccount.getEmail())){
+                alert = new Alert(Alert.AlertType.ERROR, "Account with this email already exist", ButtonType.OK);
                 alert.showAndWait();
                 if (alert.getResult() == ButtonType.OK) {
-                    stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                    changeToLoginScene();
+                    create_email_field.clear();
+                    create_email_field.requestFocus();
                 }
             }else{
-                alert = new Alert(Alert.AlertType.WARNING, "All fields must be filled.", ButtonType.OK);
-                alert.showAndWait();
+                newAccount.setAccess(MainController.CUSTOMER_ACCESS_LEVEL);
+                if(mainController.sendAccountToDatabase(newAccount)){
+                    alert = new Alert(Alert.AlertType.CONFIRMATION, "Account has been successfully created", ButtonType.OK);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.OK) {
+                        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                        changeToLoginScene();
+                    }
+                }else{
+                    alert = new Alert(Alert.AlertType.ERROR, "Account could not be created", ButtonType.OK);
+                    alert.showAndWait();
+                }
             }
+        }else{
+            alert = new Alert(Alert.AlertType.WARNING, "All fields must be filled.", ButtonType.OK);
+            alert.showAndWait();
         }
     }
 
@@ -101,49 +104,34 @@ public class CreateAccountController {
      * Read data from text fields and saves it to newUser instance in MainController.
      */
     private boolean getUserInput(){
-        Account newAccount = new Account();
-        if (create_person_number_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setUserId(Integer.getInteger(create_person_number_field.getText())); }
-
         if (create_email_field.getText().isEmpty()){ return false;
         }else{
+            System.out.println("\nget user input email");
             newAccount.setEmail(create_email_field.getText()); }
-
         if (create_password_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setPassword(create_password_field.getText()); }
-
         if (create_first_name_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setFirstName(create_first_name_field.getText()); }
-
         if (create_last_name_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setLastName(create_last_name_field.getText()); }
-
         if (create_country_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setCountry(create_country_field.getText()); }
-
         if (create_city_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setCity(create_city_field.getText()); }
-
         if (create_street_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setStreet(create_street_field.getText()); }
-
         if (create_postal_code_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setPostCode(create_postal_code_field.getText()); }
-
         if (create_phone_number_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setPhoneNumber(create_phone_number_field.getText()); }
-
-        newAccount.setAccess(MainController.CUSTOMER_ACCESS_LEVEL);
-        mainController.setNewAccount(newAccount);
         return true;
     }
 }

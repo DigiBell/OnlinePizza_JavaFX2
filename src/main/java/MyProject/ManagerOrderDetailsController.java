@@ -10,7 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
-public class OrderDetailsController {
+public class ManagerOrderDetailsController {
     @FXML private MainController mainController;
     @FXML private ListView order_details_list_view;
     private Stage stage;

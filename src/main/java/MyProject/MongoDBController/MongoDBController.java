@@ -1,22 +1,28 @@
 package MyProject.MongoDBController;
 
 import MyProject.MainController;
-import MyProject.Model.Account;
-import MyProject.Model.Ingredient;
-import MyProject.Model.Product;
-import MyProject.Model.Order;
+import MyProject.Model.*;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.*;
+import com.mongodb.client.model.FindOneAndUpdateOptions;
+import com.mongodb.client.model.ReturnDocument;
 import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.InsertManyResult;
+import com.mongodb.client.result.InsertOneResult;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import org.bson.conversions.Bson;
+
 import java.util.ArrayList;
 
 import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Updates.*;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,8 +41,8 @@ public class MongoDBController {
     }
 
 //    public static void main(String[] args){
-//        initializeDBConnection();
-//        System.out.println("\nInitialization complete");
+////        initializeDBConnection();
+////        System.out.println("\nInitialization complete");
 //
 //        mongoClient.getDatabase("OnlinePizza").getCollection("Products").drop();
 //        System.out.println("\nCollection Products deleted");
@@ -45,10 +51,9 @@ public class MongoDBController {
 //        System.out.println("\nCollections Products created");
 //
 //        sendProducts();
-//        System.out.println("\nProducts care sent");
+//        System.out.println("\nProducts are sent");
 //        //sendAccount(mainController.generateManager());
 //    }
-
 
     private static void initializeDBConnection() {
         mainController = MainController.getMainControllerInstance();
@@ -66,7 +71,7 @@ public class MongoDBController {
         database = mongoClient.getDatabase("OnlinePizza");
     }
 
-    //DELETE ALL COLLECTIONS
+    //DELETE COLLECTIONS
     private static void deleteCollections() {
         //mongoClient.getDatabase("OnlinePizza").getCollection("Accounts").drop();
         //mongoClient.getDatabase("OnlinePizza").getCollection("Ingredients").drop();
@@ -95,8 +100,6 @@ public class MongoDBController {
         MongoCollection<Product> products = database.getCollection("Products", Product.class);
         try {
             List<Product> productList = products.find().into(new ArrayList<>());
-//            System.out.println(productList.toString());
-//            mainController.setProductList(productList);
             return productList;
         }catch(NullPointerException n){
             return null;
@@ -121,9 +124,14 @@ public class MongoDBController {
     }
 
     //SEND ACCOUNT DOCUMENT
-    public static void sendAccount(Account account) {
+    public boolean sendAccount(Account account) {
         MongoCollection<Account> accounts = database.getCollection("Accounts", Account.class);
-        accounts.insertOne(account);
+        InsertOneResult result = accounts.insertOne(account);
+        if(result.wasAcknowledged()){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     //GET ACCOUNT DOCUMENT
@@ -138,13 +146,55 @@ public class MongoDBController {
         }
     }
 
-    //SEND ORDER DOCUMENT
-    private static void sendOrderDocument() {//send sale document
-        MongoCollection<Order> orders = database.getCollection("Orders", Order.class);
-        //orders.insertOne();
+    //GET ACCOUNT DOCUMENT
+    public boolean getAccount(String email) {
+        MongoCollection<Account> accounts = database.getCollection("Accounts", Account.class);
+        Account account = accounts.find(eq("email", email)).first();
+        if(account == null){
+            return false;
+        }else{
+            return true;
+        }
     }
 
-    //DELETE A DOCUMENTC
+    //SEND ORDER DOCUMENT
+    public boolean sendOrder(Order order) {
+        if(order != null){
+            MongoCollection<Order> orders = database.getCollection("Orders", Order.class);
+            InsertOneResult result = orders.insertOne(order);
+            if(result.wasAcknowledged()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean sendSales(List<Sale> saleList){
+        if(!saleList.isEmpty()){
+            MongoCollection<Sale> sales = database.getCollection("Sales", Sale.class);
+            InsertManyResult result = sales.insertMany(saleList);
+            if(result.wasAcknowledged()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void updateProduct(List<Sale> productsToUpdate){
+        if(!productsToUpdate.isEmpty()){
+            MongoCollection<Product> products = database.getCollection("Products", Product.class);
+            for(Sale s: productsToUpdate) {
+                if(!s.getProductCategory().equals("Pizza")){
+                    UpdateResult updateResult = products.updateOne(eq("product_id", s.getProductId()), inc("quantity", -(s.getQuantity())));
+                    System.out.println("\nResult : " + updateResult);
+                }
+            }
+        }else {
+            System.out.println("List is empty");
+        }
+    }
+
+    //DELETE A DOCUMENT
     private static void deleteDocuments() {
         MongoCollection<Document> pizzaMenu = mongoClient.getDatabase("OnlinePizze").getCollection("PizzaMenu");
         pizzaMenu.deleteMany(new Document("pizza_name", "BBQ Pizza"));
@@ -155,6 +205,5 @@ public class MongoDBController {
         MongoCollection<Document> pizzaMenu = mongoClient.getDatabase("OnlinePizze").getCollection("PizzaMenu");
         pizzaMenu.updateMany(new Document(), Updates.set("pizza_price", 100));
     }
-
 }
 
