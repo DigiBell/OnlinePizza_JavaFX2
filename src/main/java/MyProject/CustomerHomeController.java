@@ -1,11 +1,8 @@
 package MyProject;
 
+import MyProject.Model.Order;
 import MyProject.Model.OrderLine;
 import MyProject.Model.Product;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.util.Callback;
+
+import java.util.Date;
 
 public class CustomerHomeController {
     @FXML private MainController mainController;
@@ -29,12 +27,7 @@ public class CustomerHomeController {
     @FXML private TableColumn<Product, String> size_column;
     @FXML private TableColumn<Product, String> price_column;
 
-    @FXML private CheckBox add_extra_cmc_checkbox;
-    @FXML private CheckBox add_extra_other_checkbox;
-    @FXML private TextArea comment_text_area;
-
-    private Product productSelected;
-    private OrderLine orderLine;
+    private Alert alert;
 
     /**
      * Initialise layout.
@@ -52,7 +45,6 @@ public class CustomerHomeController {
         size_column.setCellValueFactory(new PropertyValueFactory<>("Size"));
         price_column.setCellValueFactory(new PropertyValueFactory<>("Price"));
         mainController.getProductsFromDatabase();
-
         productTable.getItems().addAll(mainController.getProductList());
     }
 
@@ -63,81 +55,61 @@ public class CustomerHomeController {
      */
     @FXML
     private void add(ActionEvent event)throws Exception{
-        productSelected = productTable.getSelectionModel().getSelectedItem();
+        System.out.println("\nadd product to cart");
+        Product productSelected = productTable.getSelectionModel().getSelectedItem();
+        mainController.setProductSelected(productSelected);
         if(productSelected.getCategory().equals("Pizza")){
-            customizePizza();
+            changeToCustomPizzaView();
         }else{
-            //addNonPizzaToCart(productSelected);
+            addNonPizzaToCart();
         }
+        addLineToCart();
     }
 
-    private void customizePizza()throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("CustomerHomeCustomPizzaView.fxml"));
+    private void changeToCustomPizzaView()throws Exception{
+        System.out.println("\ncustomize pizza");
+        Parent root = FXMLLoader.load(getClass().getResource("CustomerCustomPizzaView.fxml"));
         Stage smallStage = new Stage();
-        smallStage.setScene(new Scene(root, 300, 500));
+        smallStage.setScene(new Scene(root, 500, 400));
         root.requestFocus();
         smallStage.showAndWait();
     }
 
-    @FXML
-    private void confirm(ActionEvent event){
-        boolean extra_cmc = false;
-        if(add_extra_cmc_checkbox.isSelected()){
-            extra_cmc = true;
-        }
-
-        boolean extra_other= false;
-        if(add_extra_other_checkbox.isSelected()){
-            extra_other = true;
-        }
-
-        addPizzaToCart(extra_cmc, extra_other, comment_text_area.getText());
-    }
-
-    private void addPizzaToCart( boolean extra_cmc, boolean extra_other, String comment){
+    private void addNonPizzaToCart( ){
+        Product productSelected = mainController.getProductSelected();
         String details = " (" + productSelected.getSize() + productSelected.getUnits() + ") ";
-        int price = productSelected.getPrice();
-        if(extra_cmc){
-            details = details + "(Extra Ost/Kött/Kyckling";
-            for (Product product: mainController.getProductsExtraCMC()) {
-                if(product.getSize() == productSelected.getSize()){
-                    price = price + product.getPrice();
-                    details = details + product.getPrice() + "kr) ";
-                }
-            }
-        }
-        if(extra_other){
-            details = details + "(Extra Other";
-            for (Product product: mainController.getProductsExtraOther()) {
-                if(product.getSize() == productSelected.getSize()){
-                    price = price + product.getPrice();
-                    details = details + product.getPrice() + "kr) ";
-                }
-            }
-        }
 
+        OrderLine orderLine = new OrderLine();
         orderLine.setProductId(productSelected.getProductId());
         orderLine.setProductName(productSelected.getName());
+        orderLine.setProductCategory(productSelected.getCategory());
         orderLine.setDetails(details);
-        orderLine.setComment(comment);
-        orderLine.setTotalPrice(price);
+        orderLine.setComment(null);
+        orderLine.setTotalPrice(productSelected.getPrice());
 
         String cartLine = "" + orderLine.getProductName() + orderLine.getDetails() + "price: " + orderLine.getTotalPrice();
-        addLineToCart(cartLine, orderLine.getTotalPrice());
+
+        mainController.setOrderLine(orderLine);
+        mainController.getOrderLineList().add(orderLine);
+        mainController.setCartLine(cartLine);
     }
 
     /**
      * Adds a line with product details along with the total price to cart listView.
-     * @param cartLine is a string that holds information about chosen product
-     * @param price total price for a product
      */
     @SuppressWarnings("unchecked")
-    private void addLineToCart(String cartLine, double price){
-        mainController.setTotalPrice(mainController.getTotalPrice() + price);
+    private void addLineToCart(){
+        String cartLine = mainController.getCartLine();
+        System.out.println("cartline:" + cartLine);
+        int price = mainController.getOrderLine().getTotalPrice();
+        double totalPrice = mainController.getTotalPrice();
+        totalPrice = totalPrice + price;
+        mainController.setTotalPrice(totalPrice);
         String totalPriceLine = "Total price: " + mainController.getTotalPrice() + " kr";
         int size;
+        //MAYBE CREATE AN OBSERVABLE LIST TO SKIP CALLING getCartLineList MANY TIMES ?
+        mainController.setCartLineList(cart_list_view.getItems());
         if(!(cart_list_view.getItems().isEmpty())){
-            mainController.setCartLineList(cart_list_view.getItems());
             size = mainController.getCartLineList().size();
             mainController.getCartLineList().remove(size-1);
             mainController.getCartLineList().add(size-1, cartLine);
@@ -157,9 +129,7 @@ public class CustomerHomeController {
     @FXML
     private void homeLogOut(ActionEvent event)throws Exception{
         productTable.getItems().clear();
-        //cart_list_view.getItems().clear();
         mainController.clearAllData();
-        //open login window
         Parent root = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root, mainController.MAIN_STAGE_WIDTH, mainController.MAIN_STAGE_HEIGHT));
@@ -175,11 +145,27 @@ public class CustomerHomeController {
      */
     @FXML
     private void placeOrder(ActionEvent event)throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("UserHomeOrderView.fxml"));
-        Stage smallStage = new Stage();
-        smallStage.setScene(new Scene(root, 350, 200));
-        root.requestFocus();
-        smallStage.showAndWait();
+        //send order to database
+        Order order = new Order();
+        order.setUserId(mainController.getLoginAccount().getUserId());
+        order.setDate(new Date());
+        order.setOrderLines(mainController.getOrderLineList());
+        order.setTotalPrice(mainController.getTotalPrice());
+
+        if(mainController.sendOrderToDatabase(order)){
+            mainController.clearCart();
+            alert = new Alert(Alert.AlertType.CONFIRMATION, "Order is sent", ButtonType.OK);
+            alert.showAndWait();
+        }else{
+            alert = new Alert(Alert.AlertType.ERROR, "Order is not sent", ButtonType.OK);
+            alert.showAndWait();
+        }
+
+//        Parent root = FXMLLoader.load(getClass().getResource("CustomerOrderDetailsView.fxml"));
+//        Stage smallStage = new Stage();
+//        smallStage.setScene(new Scene(root, 500, 500));
+//        root.requestFocus();
+//        smallStage.showAndWait();
     }
 
     /**
@@ -193,5 +179,4 @@ public class CustomerHomeController {
         cart_list_view.getItems().clear();
         mainController.clearCart();
     }
-
 }

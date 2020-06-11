@@ -14,11 +14,11 @@ public class Order {
     private int userId; //or Account user with all user information
     private Date date;
     private List<OrderLine> orderLines;
-    private int totalPrice;
+    private double totalPrice;
 
     public Order() { }
 
-    public Order(int orderId, int userId, Date date, List<OrderLine> orderLines, int totalPrice) {
+    public Order(int orderId, int userId, Date date, List<OrderLine> orderLines, double totalPrice) {
         this.orderId = orderId;
         this.userId = userId;
         this.date = date;
@@ -78,11 +78,11 @@ public class Order {
         this.orderLines = orderLines;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

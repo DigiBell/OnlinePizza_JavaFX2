@@ -18,21 +18,25 @@ public class MainController {
     private Random rand = new Random();
 
     private Account loginAccount;
-    private Account newAccount;
 
+    //CUSTOMER VARIABLES
     private Order order;
-    private List<OrderLine> orderLines;
+    private Product productSelected;
+    private OrderLine orderLine;
+    private String cartLine;
+    private Double totalPrice = 0.0;
+    private List<OrderLine> orderLineList = new ArrayList<>();
     private List<Product> productsExtraCMC = new ArrayList<>();
     private List<Product> productsExtraOther = new ArrayList<>();
-    private Double totalPrice;
+    private List<Sale> saleListToAdd = new ArrayList<>();
+    private ObservableList<String> cartLineList; //lines in the Cart listView
 
+    //MANAGER VARIABLES
     private List<Order> orderList; //orders from database
     private List<Sale> saleList; //sales from database
     private List<Ingredient> ingredients; //ingredients from database
     private List<Product> productList; //products from database, both pizza and non-pizza
 
-    private List<Product> productsInCart; //productList in the productsInCart
-    private ObservableList<String> cartLineList; //lines in the Cart listView
 
     private final static MainController mainControllerInstance = new MainController();
     private MongoDBController mongoDBController = MongoDBController.getMongoDBControllerInstance();
@@ -54,89 +58,89 @@ public class MainController {
     public List<Product> generateTestData(){
         productList = new ArrayList<>();
 
-        Product product = new Product(111, "Pizza", "Basic", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ", 20, "cm", 49, true, null);
+        Product product = new Product(111, "Pizza", "Basic", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ", "20", "cm", 49, true, null);
         productList.add(product);
-        product = new Product(112, "Pizza", "Basic", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ",30,  "cm", 79, true, null);
+        product = new Product(112, "Pizza", "Basic", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ","30",  "cm", 79, true, null);
         productList.add(product);
-        product = new Product(113, "Pizza", "Basic", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ", 40, "cm", 119, true, null);
+        product = new Product(113, "Pizza", "Basic", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ", "40", "cm", 119, true, null);
         productList.add(product);
-        product = new Product(114, "Pizza", "Basic (Glutenfree)", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ", 30,"cm", 139, true, null);
+        product = new Product(114, "Pizza", "Basic (Glutenfree)", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ", "30","cm", 139, true, null);
         productList.add(product);
-        product = new Product(115, "Pizza", "HAWAII 5-0", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", 20, "cm", 65, true, null);
+        product = new Product(115, "Pizza", "HAWAII 5-0", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", "20", "cm", 65, true, null);
         productList.add(product);
-        product = new Product(116, "Pizza", "HAWAII 5-0", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", 30,"cm", 105, true, null);
+        product = new Product(116, "Pizza", "HAWAII 5-0", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", "30","cm", 105, true, null);
         productList.add(product);
-        product = new Product(117, "Pizza", "HAWAII 5-0", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", 40,"cm", 159, true, null);
+        product = new Product(117, "Pizza", "HAWAII 5-0", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", "40","cm", 159, true, null);
         productList.add(product);
-        product = new Product(118, "Pizza", "HAWAII 5-0 (Glutenfree)", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", 30, "cm", 139, true, null);
+        product = new Product(118, "Pizza", "HAWAII 5-0 (Glutenfree)", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", "30", "cm", 139, true, null);
         productList.add(product);
-        product = new Product(119, "Pizza", "SVINGOD", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  20, "cm", 59, true, null);
+        product = new Product(119, "Pizza", "SVINGOD", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  "20", "cm", 59, true, null);
         productList.add(product);
-        product = new Product(120, "Pizza", "SVINGOD", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  30, "cm", 99, true, null);
+        product = new Product(120, "Pizza", "SVINGOD", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  "30", "cm", 99, true, null);
         productList.add(product);
-        product = new Product(121, "Pizza", "SVINGOD", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  40, "cm", 155, true, null);
+        product = new Product(121, "Pizza", "SVINGOD", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  "40", "cm", 155, true, null);
         productList.add(product);
-        product = new Product(122, "Pizza", "SVINGOD (Glutenfri)", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  30, "cm", 139, true, null);
+        product = new Product(122, "Pizza", "SVINGOD (Glutenfri)", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  "30", "cm", 139, true, null);
         productList.add(product);
-        product = new Product(123, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs,lök och bacon", 20, "cm", 65, true, null);
+        product = new Product(123, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs,lök och bacon", "20", "cm", 65, true, null);
         productList.add(product);
-        product = new Product(124, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs,lök och bacon", 30, "cm", 105, true, null);
+        product = new Product(124, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs,lök och bacon", "30", "cm", 105, true, null);
         productList.add(product);
-        product = new Product(125, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs,lök och bacon", 40, "cm", 159, true, null);
+        product = new Product(125, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs,lök och bacon", "40", "cm", 159, true, null);
         productList.add(product);
-        product = new Product(126, "Pizza", "PIZZABAKEREN SPECIAL (Glutenfri)", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, köttfärs,lök och bacon", 30, "cm", 139, true, null);
+        product = new Product(126, "Pizza", "PIZZABAKEREN SPECIAL (Glutenfri)", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, köttfärs,lök och bacon", "30", "cm", 139, true, null);
         productList.add(product);
-        product = new Product(127, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili",20,  "cm", 69, true, null);
+        product = new Product(127, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili","20",  "cm", 69, true, null);
         productList.add(product);
-        product = new Product(128, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili",30,  "cm", 115, true, null);
+        product = new Product(128, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili","30",  "cm", 115, true, null);
         productList.add(product);
-        product = new Product(129, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili",40,  "cm", 165, true, null);
+        product = new Product(129, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili","40",  "cm", 165, true, null);
         productList.add(product);
-        product = new Product(130, "Pizza", "EL MEXICO (Glutenfri)", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili",30,  "cm", 139, true, null);
+        product = new Product(130, "Pizza", "EL MEXICO (Glutenfri)", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili","30",  "cm", 139, true, null);
         productList.add(product);
-        product = new Product(131, "Pizza", "FLAMMAN", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños",20,  "cm", 65, true, null);
+        product = new Product(131, "Pizza", "FLAMMAN", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños","20",  "cm", 65, true, null);
         productList.add(product);
-        product = new Product(132, "Pizza", "FLAMMAN", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños", 30, "cm", 105, true, null);
+        product = new Product(132, "Pizza", "FLAMMAN", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños", "30", "cm", 105, true, null);
         productList.add(product);
-        product = new Product(133, "Pizza", "FLAMMAN", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños",40,  "cm", 159, true, null);
+        product = new Product(133, "Pizza", "FLAMMAN", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños","40",  "cm", 159, true, null);
         productList.add(product);
-        product = new Product(134, "Pizza", "FLAMMAN (Glutenfri)", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños",30,  "cm", 139, true, null);
+        product = new Product(134, "Pizza", "FLAMMAN (Glutenfri)", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños","30",  "cm", 139, true, null);
         productList.add(product);
-        product = new Product(135, "Pizza", "TACOKYCKLINGEN", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños",20,  "cm", 69, true, null);
+        product = new Product(135, "Pizza", "TACOKYCKLINGEN", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños","20",  "cm", 69, true, null);
         productList.add(product);
-        product = new Product(136, "Pizza", "TACOKYCKLINGEN", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños",30,  "cm", 115, true, null);
+        product = new Product(136, "Pizza", "TACOKYCKLINGEN", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños","30",  "cm", 115, true, null);
         productList.add(product);
-        product = new Product(137, "Pizza", "TACOKYCKLINGEN", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños",40,  "cm", 165, true, null);
+        product = new Product(137, "Pizza", "TACOKYCKLINGEN", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños","40",  "cm", 165, true, null);
         productList.add(product);
-        product = new Product(138, "Pizza", "TACOKYCKLINGEN (Glutenfri)", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños", 30, "cm", 139, true, null);
+        product = new Product(138, "Pizza", "TACOKYCKLINGEN (Glutenfri)", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños", "30", "cm", 139, true, null);
         productList.add(product);
-        product = new Product(211, "Beverages", "CocaCola Classic", null, 0.33, "L", 15, true, 56);
+        product = new Product(211, "Beverages", "CocaCola Classic", null, "0.33", "L", 15, true, 100);
         productList.add(product);
-        product = new Product(212, "Beverages", "CocaCola Classic", null, 0.5, "L", 25, true, 35);
+        product = new Product(212, "Beverages", "CocaCola Classic", null, "0.5", "L", 25, true, 100);
         productList.add(product);
-        product = new Product(213, "Beverages", "CocaCola Classic", null, 1.5, "L", 35, true, 45);
+        product = new Product(213, "Beverages", "CocaCola Classic", null, "1.5", "L", 35, true, 100);
         productList.add(product);
-        product = new Product(214, "Beverages", "REDBULL", null, 0.25, "L", 29, true, 35);
+        product = new Product(214, "Beverages", "REDBULL", null, "0.25", "L", 29, true, 100);
         productList.add(product);
-        product = new Product(311, "IceCream", "BEN & JERRY'S Classic", null, 0.5, "L", 79, true, 42);
+        product = new Product(311, "IceCream", "BEN & JERRY'S Classic", null, "0.5", "L", 79, true, 100);
         productList.add(product);
-        product = new Product(312, "IceCream", "BEN & JERRY'S Core", null, 0.5, "L", 89, true, 27);
+        product = new Product(312, "IceCream", "BEN & JERRY'S Core", null, "0.5", "L", 89, true, 100);
         productList.add(product);
-        product = new Product(411, "Salad", "PIZZASALLAD", null, 250, "g", 15, true, 15);
+        product = new Product(411, "Salad", "PIZZASALLAD", null, "250", "g", 15, true, 100);
         productList.add(product);
-        product = new Product(511, "Sauce", "PB DIPPSÅS", null, 50, "ml", 8, true, 65);
+        product = new Product(511, "Sauce", "PB DIPPSÅS", null, "50", "ml", 8, true, 100);
         productList.add(product);
-        product = new Product(611, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", 20,"cm", 10, true, null);
+        product = new Product(611, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", "20","cm", 10, true, null);
         productList.add(product);
-        product = new Product(612, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", 30,"cm", 15, true, null);
+        product = new Product(612, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", "30","cm", 15, true, null);
         productList.add(product);
-        product = new Product(613, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", 40,"cm", 20, true, null);
+        product = new Product(613, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", "40","cm", 20, true, null);
         productList.add(product);
-        product = new Product(614, "Extras", "Extra Övrigt", "Other", 20,"cm", 5, true, null);
+        product = new Product(614, "Extras", "Extra Övrigt", "Other", "20","cm", 5, true, null);
         productList.add(product);
-        product = new Product(615, "Extras", "Extra Övrigt", "Other", 30,"cm", 5, true, null);
+        product = new Product(615, "Extras", "Extra Övrigt", "Other", "30","cm", 5, true, null);
         productList.add(product);
-        product = new Product(616, "Extras", "Extra Övrigt", "Other", 40,"cm", 5, true, null);
+        product = new Product(616, "Extras", "Extra Övrigt", "Other", "40","cm", 5, true, null);
         productList.add(product);
 
         return productList;
@@ -187,21 +191,57 @@ public class MainController {
     //////////////////////////////////////////---DATABASE METHODS---///////////////////////////////////
 
 
-    public void sendAccountToDatabase(Account account){
-        mongoDBController.sendAccount(generateManager());
+    public boolean sendAccountToDatabase(Account account){
+        account.setUserId((rand.nextInt(4999)+1));
+        boolean result = mongoDBController.sendAccount(account);
+        return result;
     }
 
-    public void sendOrderToDatabase(){
-        getOrder();
-        //send to database
+    public boolean sendOrderToDatabase(Order order){
+        order.setOrderId((rand.nextInt(5000)+5000));
+        boolean resultOrder = mongoDBController.sendOrder(order);
+        boolean resultSales = sendSalesToDatabase(order);
+        mongoDBController.updateProduct(getSaleListToAdd());
+        if(resultOrder && resultSales){
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public Account findAccount(String email, String password){
+    public boolean sendSalesToDatabase(Order order){
+        //Create Sale document and insert into Sales
+        List<OrderLine> orderLineList = getOrderLineList();
+        System.out.println("\norder list\n" + orderLineList.toString());
+        int numberOfProducts = orderLineList.size();
+        List<Sale> saleList = new ArrayList<>();
+        for (int i = 0; i < numberOfProducts; i++) {
+            Sale sale = new Sale();
+            sale.setOrderId(order.getOrderId());
+            sale.setDate(order.getDate());
+            sale.setProductId(orderLineList.get(i).getProductId());
+            sale.setProductName(orderLineList.get(i).getProductName());
+            sale.setProductCategory(orderLineList.get(i).getProductCategory());
+            sale.setQuantity(1);
+            saleList.add(sale);
+            System.out.println("Sale document: " + sale.toString());
+        }
+        setSaleListToAdd(saleList);
+        //INSERT SALE DOCUMENTS MANY (1 FOR EACH PRODUCT)
+        return mongoDBController.sendSales(saleList);
+    }
+
+
+    public Account findAccountByEmailPassword(String email, String password){
         loginAccount = mongoDBController.getAccount(email, password);
-        System.out.println("Login account" + loginAccount.toString());
         setLoginAccount(loginAccount);
         return loginAccount;
     }
+
+    public boolean findAccountByEmail(String email){
+        return mongoDBController.getAccount(email);
+    }
+
 
     public List<Product> getProductsFromDatabase(){
         productList = mongoDBController.getProducts();
@@ -209,7 +249,6 @@ public class MainController {
         List<Product> newProducts = new ArrayList<>();
 
         for (Product product: productList) {
-            System.out.println("\n product " + product.toString());
             productCopy = product;
             if(product.getName().equals("Extra Ost/kött/kyckling")){
                 productsExtraCMC.add(productCopy);
@@ -249,22 +288,32 @@ public class MainController {
     //////////////////////////////////////////-----HELP METHODS-----///////////////////////////////////
 
     public void clearCart(){
+        setOrder(new Order());
+        setProductSelected(new Product());
+        setOrderLine(new OrderLine());
+        setCartLine("");
+
+        getOrderLineList().clear();
+        getProductsExtraCMC().clear();
+        getProductsExtraOther().clear();
+        getSaleListToAdd().clear();
         getCartLineList().clear();
-        getProductsInCart().clear();
         setTotalPrice(0.0);
     }
 
     public void clearAllData(){
-        loginAccount = null;
-        newAccount = null;
-        order = null;
-        orderList = null;
-        saleList = null;
-        ingredients = null;
-        productList = null;
-        productsInCart = null;
-        cartLineList = null;
-        totalPrice = 0.0;
+        setLoginAccount(new Account());
+        setOrder(new Order());
+        setProductSelected(new Product());
+        setOrderLine(new OrderLine());
+        setCartLine("");
+
+        getOrderLineList().clear();
+        getProductsExtraCMC().clear();
+        getProductsExtraOther().clear();
+        getSaleListToAdd().clear();
+        getCartLineList().clear();
+        setTotalPrice(0.0);
     }
 
     //////////////////////////////////////////----GETTERS & SETTERS----//////////////////////////////////
@@ -277,14 +326,6 @@ public class MainController {
         this.loginAccount = loginAccount;
     }
 
-    public Account getNewAccount() {
-        return newAccount;
-    }
-
-    public void setNewAccount(Account newAccount) {
-        this.newAccount = newAccount;
-    }
-
     public Order getOrder() {
         return order;
     }
@@ -293,12 +334,24 @@ public class MainController {
         this.order = order;
     }
 
-    public List<OrderLine> getOrderLines() {
-        return orderLines;
+    public Product getProductSelected() {
+        System.out.println("\nget product selected");
+        return productSelected; }
+
+    public void setProductSelected(Product productSelected) {
+        System.out.println("\nset product selected");
+        this.productSelected = productSelected; }
+
+    public OrderLine getOrderLine() { return orderLine; }
+
+    public void setOrderLine(OrderLine orderLine) { this.orderLine = orderLine; }
+
+    public List<OrderLine> getOrderLineList() {
+        return orderLineList;
     }
 
-    public void setOrderLines(List<OrderLine> orderLines) {
-        this.orderLines = orderLines;
+    public void setOrderLineList(List<OrderLine> orderLineList) {
+        this.orderLineList = orderLineList;
     }
 
     public List<Product> getProductsExtraCMC() {
@@ -317,11 +370,21 @@ public class MainController {
         this.productsExtraOther = productsExtraOther;
     }
 
-    public Double getTotalPrice() {
-        return totalPrice;
+    public List<Sale> getSaleListToAdd() {
+        return saleListToAdd;
     }
 
+    public void setSaleListToAdd(List<Sale> saleListToAdd) {
+        this.saleListToAdd = saleListToAdd;
+    }
+
+    public Double getTotalPrice() {
+        System.out.println("\ngetTotalPrice:" + totalPrice);
+        return totalPrice; }
+
     public void setTotalPrice(Double totalPrice) {
+
+        System.out.println("\nsetTotalPrice:" + totalPrice);
         this.totalPrice = totalPrice;
     }
 
@@ -353,27 +416,21 @@ public class MainController {
         return productList;
     }
 
-    public void setProductList(List<Product> productList) {
-        System.out.println("\nMainController setProductList");
-        System.out.println(productList.toString());
-        System.out.println("\nMainController setProductList");
-        this.productList.addAll(productList);
-        //this.productList = productList;
-    }
+    public void setProductList(List<Product> productList) { this.productList.addAll(productList); }
 
-    public List<Product> getProductsInCart() {
-        return productsInCart;
-    }
 
-    public void setProductsInCart(List<Product> productsInCart) {
-        this.productsInCart = productsInCart;
-    }
+
+    public String getCartLine() { return cartLine; }
+
+    public void setCartLine(String cartLine) { this.cartLine = cartLine; }
 
     public ObservableList<String> getCartLineList() {
+        System.out.println("getCartLineList");
         return cartLineList;
     }
 
     public void setCartLineList(ObservableList<String> cartLineList) {
+        System.out.println("getCartLineList");
         this.cartLineList = cartLineList;
     }
 }

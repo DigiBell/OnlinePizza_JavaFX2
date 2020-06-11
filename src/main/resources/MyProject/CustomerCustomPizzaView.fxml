@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyProject.CustomerHomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyProject.CustomerCustomPizzaController">
    <center>
       <TextArea fx:id="comment_text_area" prefHeight="150.0" prefWidth="150.0" promptText="Add comment ..." wrapText="true" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -39,7 +39,7 @@
       </GridPane>
    </top>
    <bottom>
-      <Button fx:id="add_button" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="50.0" text="Confirm" BorderPane.alignment="CENTER">
+      <Button fx:id="add_button" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="100.0" text="Confirm" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="20.0" top="20.0" />
          </BorderPane.margin>

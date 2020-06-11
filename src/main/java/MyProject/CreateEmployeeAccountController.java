@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 public class CreateEmployeeAccountController {
     @FXML private MainController mainController;
     @FXML private LoginController loginController;
-    @FXML private TextField create_person_number_field;
     @FXML private TextField create_email_field;
     @FXML private TextField create_password_field;
     @FXML private TextField create_first_name_field;
@@ -25,16 +24,31 @@ public class CreateEmployeeAccountController {
 
     private Alert alert;
     private Stage stage;
+    private Account newAccount = new Account();
 
     @FXML
     private void createNewEmployeeAccount(ActionEvent event){
-        if(getUserInput()){//get all data from textfields and send it to database
-            //sendNewUserAccountToDatabase(mainController.getNewAccount()); // method that creates a Document and send it to Database
-            alert = new Alert(Alert.AlertType.CONFIRMATION, "Account has been succesfully created", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                stage.close();
+        if(getUserInput()){
+            if(mainController.findAccountByEmail(newAccount.getEmail())){
+                alert = new Alert(Alert.AlertType.ERROR, "Account with this email already exist", ButtonType.OK);
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.OK) {
+                    create_email_field.clear();
+                    create_email_field.requestFocus();
+                }
+            }else{
+                newAccount.setAccess(MainController.EMPLOYEE_ACCESS_LEVEL);
+                if(mainController.sendAccountToDatabase(newAccount)){
+                    alert = new Alert(Alert.AlertType.CONFIRMATION, "Account has been successfully created", ButtonType.OK);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.OK) {
+                        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                        stage.close();
+                    }
+                }else{
+                    alert = new Alert(Alert.AlertType.ERROR, "Account could not be created", ButtonType.OK);
+                    alert.showAndWait();
+                }
             }
         }else{
             alert = new Alert(Alert.AlertType.WARNING, "All fields must be filled.", ButtonType.OK);
@@ -52,11 +66,6 @@ public class CreateEmployeeAccountController {
      * Read data from text fields and saves it to newUser instance in MainController.
      */
     private boolean getUserInput(){
-        Account newAccount = new Account();
-        if (create_person_number_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setUserId(Integer.getInteger(create_person_number_field.getText())); }
-
         if (create_email_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setEmail(create_email_field.getText()); }
@@ -92,9 +101,6 @@ public class CreateEmployeeAccountController {
         if (create_phone_number_field.getText().isEmpty()){ return false;
         }else{
             newAccount.setPhoneNumber(create_phone_number_field.getText()); }
-
-        newAccount.setAccess(MainController.EMPLOYEE_ACCESS_LEVEL);
-        mainController.setNewAccount(newAccount);
         return true;
     }
 }

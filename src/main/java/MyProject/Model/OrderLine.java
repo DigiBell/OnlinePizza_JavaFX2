@@ -6,15 +6,17 @@ public class OrderLine {
     @BsonProperty(value="product_id")
     private int productId;
     private String productName;
+    private String productCategory;
     private String details;
     private String comment;
     private int totalPrice;
 
     public OrderLine() { }
 
-    public OrderLine(int productId, String productName, String details, String comment, int totalPrice) {
+    public OrderLine(int productId, String productName, String productCategory, String details, String comment, int totalPrice) {
         this.productId = productId;
         this.productName = productName;
+        this.productCategory = productCategory;
         this.details = details;
         this.comment = comment;
         this.totalPrice = totalPrice;
@@ -25,6 +27,7 @@ public class OrderLine {
         return "OrderLine{" +
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
+                ", productCategory='" + productCategory + '\'' +
                 ", details='" + details + '\'' +
                 ", comment='" + comment + '\'' +
                 ", totalPrice=" + totalPrice +
@@ -45,6 +48,14 @@ public class OrderLine {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 
     public String getDetails() {

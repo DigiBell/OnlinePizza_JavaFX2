@@ -56,7 +56,7 @@ public class ManagerHomeController {
      * @throws Exception
      */
     private void changeToCreateEmployeeAccount() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/MyProject/CreateEmployeeAccountView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/MyProject/CreateEmployeeAccountView.fxml"));
         Stage smallStage = new Stage();
         smallStage.setTitle("Create employee account");
         smallStage.setScene(new Scene(root, 600, 600));
