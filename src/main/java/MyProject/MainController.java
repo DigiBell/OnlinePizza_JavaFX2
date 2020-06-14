@@ -3,6 +3,8 @@ package MyProject;
 import MyProject.Model.*;
 import MyProject.MongoDBController.MongoDBController;
 import javafx.collections.ObservableList;
+import org.bson.Document;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,16 +28,20 @@ public class MainController {
     private String cartLine;
     private Double totalPrice = 0.0;
     private List<OrderLine> orderLineList = new ArrayList<>();
+    private List<Product> productListCustomer = new ArrayList<>();
     private List<Product> productsExtraCMC = new ArrayList<>();
     private List<Product> productsExtraOther = new ArrayList<>();
     private List<Sale> saleListToAdd = new ArrayList<>();
     private ObservableList<String> cartLineList; //lines in the Cart listView
 
     //MANAGER VARIABLES
-    private List<Order> orderList; //orders from database
-    private List<Sale> saleList; //sales from database
-    private List<Ingredient> ingredients; //ingredients from database
-    private List<Product> productList; //products from database, both pizza and non-pizza
+    private List<Order> orderList = new ArrayList<>(); //orders from database
+    private List<Sale> saleList = new ArrayList<>(); //sales from database
+    private List<Ingredient> ingredientList = new ArrayList<>(); //ingredients from database
+    private Ingredient ingredientToChange;
+    private List<Product> productList = new ArrayList<>(); //products from database, both pizza and non-pizza
+    private List<Document> topSales = new ArrayList<>();
+    private ObservableList<String> topSalesLineList;
 
 
     private final static MainController mainControllerInstance = new MainController();
@@ -46,7 +52,7 @@ public class MainController {
         return mainControllerInstance;
     }
 
-    ////////////////////////////////////////////----TEST METHODS----///////////////////////////////////
+    ////////////////////////////////////////////----GENERATE METHODS----///////////////////////////////////
 
     public Account generateManager(){
         Account account = new Account((rand.nextInt(2000)+1), "marta@gmail.com", "marta",  MANAGER_ACCESS_LEVEL, new Date(),
@@ -82,13 +88,13 @@ public class MainController {
         productList.add(product);
         product = new Product(122, "Pizza", "SVINGOD (Glutenfri)", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  "30", "cm", 139, true, null);
         productList.add(product);
-        product = new Product(123, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs,lök och bacon", "20", "cm", 65, true, null);
+        product = new Product(123, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs, lök och bacon", "20", "cm", 65, true, null);
         productList.add(product);
-        product = new Product(124, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs,lök och bacon", "30", "cm", 105, true, null);
+        product = new Product(124, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs, lök och bacon", "30", "cm", 105, true, null);
         productList.add(product);
-        product = new Product(125, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs,lök och bacon", "40", "cm", 159, true, null);
+        product = new Product(125, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs, lök och bacon", "40", "cm", 159, true, null);
         productList.add(product);
-        product = new Product(126, "Pizza", "PIZZABAKEREN SPECIAL (Glutenfri)", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, köttfärs,lök och bacon", "30", "cm", 139, true, null);
+        product = new Product(126, "Pizza", "PIZZABAKEREN SPECIAL (Glutenfri)", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs, lök och bacon", "30", "cm", 139, true, null);
         productList.add(product);
         product = new Product(127, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili","20",  "cm", 69, true, null);
         productList.add(product);
@@ -148,48 +154,50 @@ public class MainController {
 
     public List<Ingredient> generateTestDataIngredients(){
         List<Ingredient> ingredientList = new ArrayList<>();
-        Ingredient ingredient = new Ingredient();
 
-        ingredient.setIngredientId(131);
-        ingredient.setName("Red paprika"); ingredient.setDescription("box 5 kg");
-        ingredient.setQuantity(6); ingredient.setUnits("kg");
+        Ingredient ingredient = new Ingredient(131, "Red paprika", "package 5 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(132, "Chiken breast", "frozen, package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(133, "Ananas", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(134, "Tomato sauce", "package 1 liter", 10, "L");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(135, "Cheese Mozarella", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(136, "Jalapeños", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(137, "Dough", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(138, "Dough(Glutenfree)", "package 5 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(139, "Nacho chips", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(140, "Taco sauce", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(141, "Beef", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(142, "Garlic", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(143, "Sweet corn", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(144, "Chili peppar", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(145, "Minced meat", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(146, "Onion", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(147, "Mashroom", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(148, "Bacon", "package 1 kg", 10, "kg");
+        ingredientList.add(ingredient);
+        ingredient = new Ingredient(149, "Ham", "package 1 kg", 10, "kg");
         ingredientList.add(ingredient);
 
-        ingredient.setIngredientId(132);
-        ingredient.setName("Chiken breast"); ingredient.setDescription("frozen, package 1 kg");
-        ingredient.setQuantity(10); ingredient.setUnits("kg");
-        ingredientList.add(ingredient);
-
-        ingredient.setIngredientId(133);
-        ingredient.setName("Ananas"); ingredient.setDescription("box 0.5 kg");
-        ingredient.setQuantity(13); ingredient.setUnits("kg");
-        ingredientList.add(ingredient);
-
-        ingredient.setIngredientId(134);
-        ingredient.setName("Tomato sauce"); ingredient.setDescription("box 1 liter");
-        ingredient.setQuantity(20); ingredient.setUnits("liter");
-        ingredientList.add(ingredient);
-
-        ingredient.setIngredientId(135);
-        ingredient.setName("Cheese Mozarella"); ingredient.setDescription("box 1 kg");
-        ingredient.setQuantity(17); ingredient.setUnits("kg");
-        ingredientList.add(ingredient);
-
-        ingredient.setIngredientId(136);
-        ingredient.setName("Dough"); ingredient.setDescription("box 1 kg");
-        ingredient.setQuantity(15); ingredient.setUnits("kg");
-        ingredientList.add(ingredient);
-
-        ingredient.setIngredientId(137);
-        ingredient.setName("Dough(Glutenfree)"); ingredient.setDescription("box 1 kg");
-        ingredient.setQuantity(11); ingredient.setUnits("kg");
-        ingredientList.add(ingredient);
-
-        return getIngredients();
+        return ingredientList;
     }
 
     //////////////////////////////////////////---DATABASE METHODS---///////////////////////////////////
-
 
     public boolean sendAccountToDatabase(Account account){
         account.setUserId((rand.nextInt(4999)+1));
@@ -223,6 +231,7 @@ public class MainController {
             sale.setProductName(orderLineList.get(i).getProductName());
             sale.setProductCategory(orderLineList.get(i).getProductCategory());
             sale.setQuantity(1);
+            sale.setPrice(orderLineList.get(i).getTotalPrice());
             saleList.add(sale);
             System.out.println("Sale document: " + sale.toString());
         }
@@ -231,20 +240,22 @@ public class MainController {
         return mongoDBController.sendSales(saleList);
     }
 
-
-    public Account findAccountByEmailPassword(String email, String password){
-        loginAccount = mongoDBController.getAccount(email, password);
-        setLoginAccount(loginAccount);
-        return loginAccount;
+    public boolean findAccountByEmailPassword(String email, String password){
+        this.loginAccount = mongoDBController.getAccount(email, password);
+        if(loginAccount == null){
+            return false;
+        }else{
+            setLoginAccount(loginAccount);
+            return true;
+        }
     }
 
     public boolean findAccountByEmail(String email){
         return mongoDBController.getAccount(email);
     }
 
-
-    public List<Product> getProductsFromDatabase(){
-        productList = mongoDBController.getProducts();
+    public void getProductsFromDatabase(){
+        this.productList = mongoDBController.getProducts();
         Product productCopy;
         List<Product> newProducts = new ArrayList<>();
 
@@ -260,30 +271,30 @@ public class MainController {
                 newProducts.add(productCopy);
             }
         }
-        productList = newProducts;
-
-        return productList;
+        this.productListCustomer = newProducts;
     }
 
     public void getIngredientsFromDatabase(){
-        //get from database
-        //setIngredients();
+        this.ingredientList = mongoDBController.getIngredients();
+    }
+
+    public boolean updateIngredient( int quantity){
+       return mongoDBController.updateIngredinet(getIngredientToChange(), quantity);
     }
 
     public void getOrdersFromDatabase(){
-        //get from database
-        //setOrderList();
+        this.orderList = mongoDBController.getOrders();
     }
 
-    public void getSalesFromDatabase(String dateFrom, String dateTo){
-        //get saleList made between dateFrom and dateTo
-        //setSaleList();
+    public void getOrdersFromDatabase(Date from, Date to){
+        this.orderList = mongoDBController.getOrders(from, to);
     }
 
-    public void getTotalSalesFromDatabase(String dateFrom, String dateTo){
-        //aggregate(sum quantity, price) (group by productId) for saleList made between dateFrom and dateTo
-        //setSaleList();
-    }
+    public void getSalesFromDatabase(){ this.saleList = mongoDBController.getSales(); }
+
+    public void getSalesFromDatabase(Date from, Date to){ this.saleList = mongoDBController.getSales(from, to); }
+
+    public void getTopSalesFromDatabase(Date dateFrom, Date dateTo){ this.topSales = mongoDBController.getTopSales(dateFrom, dateTo); }
 
     //////////////////////////////////////////-----HELP METHODS-----///////////////////////////////////
 
@@ -292,28 +303,27 @@ public class MainController {
         setProductSelected(new Product());
         setOrderLine(new OrderLine());
         setCartLine("");
-
         getOrderLineList().clear();
         getProductsExtraCMC().clear();
         getProductsExtraOther().clear();
-        getSaleListToAdd().clear();
         getCartLineList().clear();
         setTotalPrice(0.0);
     }
 
-    public void clearAllData(){
-        setLoginAccount(new Account());
-        setOrder(new Order());
-        setProductSelected(new Product());
-        setOrderLine(new OrderLine());
-        setCartLine("");
-
-        getOrderLineList().clear();
+    public void clearDataCustomer(){
+        getProductListCustomer().clear();
         getProductsExtraCMC().clear();
         getProductsExtraOther().clear();
         getSaleListToAdd().clear();
-        getCartLineList().clear();
-        setTotalPrice(0.0);
+        clearCart();
+    }
+
+    public void clearDataManager(){
+        setLoginAccount(new Account());
+        getOrderList().clear();
+        getSaleList().clear();
+        getIngredientList().clear();
+        getProductList().clear();
     }
 
     //////////////////////////////////////////----GETTERS & SETTERS----//////////////////////////////////
@@ -353,6 +363,10 @@ public class MainController {
     public void setOrderLineList(List<OrderLine> orderLineList) {
         this.orderLineList = orderLineList;
     }
+
+    public List<Product> getProductListCustomer() { return productListCustomer; }
+
+    public void setProductListCustomer(List<Product> productListCustomer) { this.productListCustomer = productListCustomer; }
 
     public List<Product> getProductsExtraCMC() {
         return productsExtraCMC;
@@ -404,13 +418,17 @@ public class MainController {
         this.saleList = saleList;
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
+    public List<Ingredient> getIngredientList() {
+        return ingredientList;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
+    public void setIngredientList(List<Ingredient> ingredients) {
+        this.ingredientList = ingredients;
     }
+
+    public Ingredient getIngredientToChange() { return ingredientToChange; }
+
+    public void setIngredientToChange(Ingredient ingredientToChange) { this.ingredientToChange = ingredientToChange; }
 
     public List<Product> getProductList() {
         return productList;
@@ -418,7 +436,21 @@ public class MainController {
 
     public void setProductList(List<Product> productList) { this.productList.addAll(productList); }
 
+    public List<Document> getTopSales() {
+        return topSales;
+    }
 
+    public void setTopSales(List<Document> topSales) {
+        this.topSales = topSales;
+    }
+
+    public ObservableList<String> getTopSalesLineList() {
+        return topSalesLineList;
+    }
+
+    public void setTopSalesLineList(ObservableList<String> topSalesLineList) {
+        this.topSalesLineList = topSalesLineList;
+    }
 
     public String getCartLine() { return cartLine; }
 

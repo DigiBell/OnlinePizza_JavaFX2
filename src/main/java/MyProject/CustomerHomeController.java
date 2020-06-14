@@ -45,7 +45,7 @@ public class CustomerHomeController {
         size_column.setCellValueFactory(new PropertyValueFactory<>("Size"));
         price_column.setCellValueFactory(new PropertyValueFactory<>("Price"));
         mainController.getProductsFromDatabase();
-        productTable.getItems().addAll(mainController.getProductList());
+        productTable.getItems().addAll(mainController.getProductListCustomer());
     }
 
     /**
@@ -129,7 +129,7 @@ public class CustomerHomeController {
     @FXML
     private void homeLogOut(ActionEvent event)throws Exception{
         productTable.getItems().clear();
-        mainController.clearAllData();
+        mainController.clearDataCustomer();
         Parent root = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root, mainController.MAIN_STAGE_WIDTH, mainController.MAIN_STAGE_HEIGHT));
@@ -145,20 +145,20 @@ public class CustomerHomeController {
      */
     @FXML
     private void placeOrder(ActionEvent event)throws Exception{
-        //send order to database
         Order order = new Order();
         order.setUserId(mainController.getLoginAccount().getUserId());
         order.setDate(new Date());
         order.setOrderLines(mainController.getOrderLineList());
         order.setTotalPrice(mainController.getTotalPrice());
-
-        if(mainController.sendOrderToDatabase(order)){
-            mainController.clearCart();
-            alert = new Alert(Alert.AlertType.CONFIRMATION, "Order is sent", ButtonType.OK);
-            alert.showAndWait();
-        }else{
-            alert = new Alert(Alert.AlertType.ERROR, "Order is not sent", ButtonType.OK);
-            alert.showAndWait();
+        if(!order.getOrderLines().isEmpty()){
+            if(mainController.sendOrderToDatabase(order)){
+                mainController.clearCart();
+                alert = new Alert(Alert.AlertType.CONFIRMATION, "Order is sent", ButtonType.OK);
+                alert.showAndWait();
+            }else{
+                alert = new Alert(Alert.AlertType.ERROR, "Order is not sent", ButtonType.OK);
+                alert.showAndWait();
+            }
         }
 
 //        Parent root = FXMLLoader.load(getClass().getResource("CustomerOrderDetailsView.fxml"));

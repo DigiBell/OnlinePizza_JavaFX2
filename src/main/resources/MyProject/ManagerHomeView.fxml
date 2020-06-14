@@ -24,22 +24,22 @@
         <tabs>
           <Tab text="Products">
                <content>
-                   <fx:include source="ProductsTabView.fxml" fx:id="ProductsTab"/>
+                   <fx:include source="ManagerProductsTabView.fxml" fx:id="ProductsTab"/>
                </content>
           </Tab>
             <Tab text="Ingredients">
               <content>
-                  <fx:include source="IngredientsTabView.fxml" fx:id="IngredientsTab"/>
+                  <fx:include source="ManagerIngredientsTabView.fxml" fx:id="IngredientsTab"/>
               </content>
             </Tab>
             <Tab text="Sales">
             <content>
-                <fx:include source="SalesTabView.fxml" fx:id="SalesTab"/>
+                <fx:include source="ManagerSalesTabView.fxml" fx:id="SalesTab"/>
             </content>
         </Tab>
             <Tab text="Orders">
                 <content>
-                    <fx:include source="OrdersTabView.fxml" fx:id="OrdersTab"/>
+                    <fx:include source="ManagerOrdersTabView.fxml" fx:id="OrdersTab"/>
                 </content>
             </Tab>
         </tabs>
