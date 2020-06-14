@@ -5,8 +5,7 @@ import MyProject.Model.*;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.*;
-import com.mongodb.client.model.FindOneAndUpdateOptions;
-import com.mongodb.client.model.ReturnDocument;
+import com.mongodb.client.model.Accumulators;
 import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.InsertManyResult;
 import com.mongodb.client.result.InsertOneResult;
@@ -15,15 +14,24 @@ import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.conversions.Bson;
+import org.bson.json.JsonWriterSettings;
 
 import java.util.ArrayList;
 
+import static com.mongodb.client.model.Accumulators.sum;
+import static com.mongodb.client.model.Aggregates.*;
 import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Projections.*;
+import static com.mongodb.client.model.Sorts.descending;
 import static com.mongodb.client.model.Updates.*;
+
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,18 +49,18 @@ public class MongoDBController {
     }
 
 //    public static void main(String[] args){
-////        initializeDBConnection();
-////        System.out.println("\nInitialization complete");
 //
-//        mongoClient.getDatabase("OnlinePizza").getCollection("Products").drop();
-//        System.out.println("\nCollection Products deleted");
+////        mongoClient.getDatabase("OnlinePizza").getCollection("Products").drop();
+////        System.out.println("\nCollection Products deleted");
+////
+////        mongoClient.getDatabase("OnlinePizza").createCollection("Products");
+////        System.out.println("\nCollections Products created");
+////
+////        sendProducts();
+////        System.out.println("\nProducts are sent");
 //
-//        mongoClient.getDatabase("OnlinePizza").createCollection("Products");
-//        System.out.println("\nCollections Products created");
-//
-//        sendProducts();
-//        System.out.println("\nProducts are sent");
 //        //sendAccount(mainController.generateManager());
+//        sendIngredients();
 //    }
 
     private static void initializeDBConnection() {
@@ -113,13 +121,25 @@ public class MongoDBController {
     }
 
     //GET INGREDIENTS
-    public static List<Ingredient> getIngredients() {
+    public List<Ingredient> getIngredients() {
         MongoCollection<Ingredient> ingredients = database.getCollection("Ingredients", Ingredient.class);
         try {
             List<Ingredient> ingredientList = ingredients.find().into(new ArrayList<>());
             return ingredientList;
         }catch(NullPointerException n){
             return null;
+        }
+    }
+
+    public boolean updateIngredinet(Ingredient ingredient, int quantity){
+        if(ingredient != null){
+            MongoCollection<Ingredient> ingredients = database.getCollection("Ingredients", Ingredient.class);
+            UpdateResult updateResult = ingredients.updateOne(eq("ingredient_id", ingredient.getIngredientId()), set("quantity", quantity));
+            System.out.println("\nResult : " + updateResult);
+            return true;
+        }else {
+            System.out.println("Ingredient is null.");
+            return false;
         }
     }
 
@@ -134,7 +154,7 @@ public class MongoDBController {
         }
     }
 
-    //GET ACCOUNT DOCUMENT
+    //GET ACCOUNT DOCUMENT BY EMAIL AND PASSWORD
     public Account getAccount(String email, String password) {
         MongoCollection<Account> accounts = database.getCollection("Accounts", Account.class);
         Account account;
@@ -146,7 +166,7 @@ public class MongoDBController {
         }
     }
 
-    //GET ACCOUNT DOCUMENT
+    //GET ACCOUNT DOCUMENT BY EMAIL
     public boolean getAccount(String email) {
         MongoCollection<Account> accounts = database.getCollection("Accounts", Account.class);
         Account account = accounts.find(eq("email", email)).first();
@@ -169,6 +189,7 @@ public class MongoDBController {
         return false;
     }
 
+    //PART OF SEND ORDER DOCUMENT
     public boolean sendSales(List<Sale> saleList){
         if(!saleList.isEmpty()){
             MongoCollection<Sale> sales = database.getCollection("Sales", Sale.class);
@@ -180,6 +201,7 @@ public class MongoDBController {
         return false;
     }
 
+    //PART OF SEND ORDER DOCUMENT
     public void updateProduct(List<Sale> productsToUpdate){
         if(!productsToUpdate.isEmpty()){
             MongoCollection<Product> products = database.getCollection("Products", Product.class);
@@ -194,10 +216,75 @@ public class MongoDBController {
         }
     }
 
+    //GET ORDERS
+    public List<Order> getOrders(){
+        MongoCollection<Order> orders = database.getCollection("Orders", Order.class);
+        try {
+            List<Order> ordertList = orders.find().into(new ArrayList<>());
+            return ordertList;
+        }catch(NullPointerException n){
+            return null;
+        }
+    }
+
+    //GET ORDERS FROM DATE TO DATE
+    public List<Order> getOrders(Date from, Date to){
+        MongoCollection<Order> orders = database.getCollection("Orders", Order.class);
+        try {
+            List<Order> ordertList = orders.find(and(lt("date", to),
+                    gt("date", from))).into(new ArrayList<>());
+            return ordertList;
+        }catch(NullPointerException n){
+            return null;
+        }
+    }
+
+    //GET SALES
+    public List<Sale> getSales(){
+        MongoCollection<Sale> sales = database.getCollection("Sales", Sale.class);
+        try {
+            List<Sale> saletList = sales.find().into(new ArrayList<>());
+            return saletList;
+        }catch(NullPointerException n){
+            return null;
+        }
+    }
+
+    //GET SALES FROM DATE TO DATE
+    public List<Sale> getSales(Date from, Date to){
+        MongoCollection<Sale> sales = database.getCollection("Sales", Sale.class);
+        try {
+            List<Sale> saletList = sales.find(and(lt("date", to),
+                    gt("date", from))).into(new ArrayList<>());
+            return saletList;
+        }catch(NullPointerException n){
+            return null;
+        }
+    }
+
+    //GET SALES FROM DATE TO DATE
+    public List<Document> getTopSales(Date from, Date to){
+        MongoCollection<Document> sales = database.getCollection("Sales");
+        try {
+            Bson match = match(and(lt("date", to), gt("date", from)));
+            Bson group = group("$productId", sum("quantity", "$quantity"), Accumulators.first("productName", "$productName"), Accumulators.first("productName", "$productName"));
+            Bson project = project(fields(computed("productId", "$_id"), include("productName", "quantity")));
+            Bson sort = sort(descending("quantity"));
+            List<Document> saleDocumentList = sales.aggregate(Arrays.asList(match, group, project, sort)).into(new ArrayList<>());
+
+            return saleDocumentList;
+        }catch(NullPointerException n){
+            return null;
+        }
+    }
+    private static Consumer<Document> printDocuments(){
+        return document -> System.out.println(document.toJson(JsonWriterSettings.builder().indent(true).build()));
+    }
+
     //DELETE A DOCUMENT
     private static void deleteDocuments() {
-        MongoCollection<Document> pizzaMenu = mongoClient.getDatabase("OnlinePizze").getCollection("PizzaMenu");
-        pizzaMenu.deleteMany(new Document("pizza_name", "BBQ Pizza"));
+        MongoCollection<Document> pizzaMenu = mongoClient.getDatabase("OnlinePizze").getCollection("Products");
+        pizzaMenu.deleteMany(new Document("name", "BBQ Pizza"));
     }
 
     //UPDATE A DOCUMENT

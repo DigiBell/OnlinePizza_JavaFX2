@@ -9,16 +9,15 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane fx:id="OrdersTab" prefHeight="620.0" prefWidth="650.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyProject.OrdersTabController">
+<BorderPane fx:id="OrdersTab" prefHeight="620.0" prefWidth="650.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyProject.ManagerOrdersTabController">
     <center>
         <TableView fx:id="ordersTable" layoutY="50.0" prefHeight="500.0" prefWidth="650.0">
             <columns>
                 <TableColumn fx:id="orders_order_id_column" prefWidth="50.0" text="Order ID" />
                 <TableColumn fx:id="orders_user_id_column" prefWidth="50.0" text="User ID" />
                 <TableColumn fx:id="orders_date_column" prefWidth="80.0" text="Date" />
-                <TableColumn fx:id="orders_products_column" prefWidth="350.0" text="Products" />
-                <TableColumn fx:id="orders_total_price_column" prefWidth="50.0" text="Total price" />
-                <TableColumn fx:id="orders_comment_column" prefWidth="150.0" text="Comment" />
+                <TableColumn fx:id="orders_products_column" prefWidth="500.0" text="Products" />
+                <TableColumn fx:id="orders_total_price_column" prefWidth="50.0" text="Total price(SEK)" />
             </columns>
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -27,16 +26,12 @@
     </center>
     <bottom>
         <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <children>
-                <Label prefHeight="30.0" prefWidth="100.0" text="Choose item to">
+         <children>
+                <Button fx:id="orders_show_all_button" mnemonicParsing="false" onAction="#showAll" prefHeight="30.0" prefWidth="100.0" text="Show all">
                     <HBox.margin>
-                        <Insets left="25.0" top="25.0" />
-                    </HBox.margin></Label>
-                <Button fx:id="orders_view_details_button" onAction="#showDetails" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="View details">
-                    <HBox.margin>
-                        <Insets right="20.0" top="25.0" />
+                        <Insets left="500.0" top="25.0" />
                     </HBox.margin></Button>
-            </children>
+         </children>
         </HBox>
     </bottom>
     <top>
@@ -58,10 +53,6 @@
                     <HBox.margin>
                         <Insets top="25.0" />
                     </HBox.margin></DatePicker>
-                <Button fx:id="orders_show_all_button" mnemonicParsing="false" onAction="#showAll" prefHeight="30.0" prefWidth="100.0" text="Show all">
-                    <HBox.margin>
-                        <Insets left="100.0" top="25.0" />
-                    </HBox.margin></Button>
             </children>
         </HBox>
     </top>

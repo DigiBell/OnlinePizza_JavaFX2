@@ -6,7 +6,9 @@ import java.util.Date;
 
 public class Sale {
     private ObjectId id;
+    //@BsonProperty(value="produc_id")
     private int productId;
+   //@BsonProperty(value="order_id")
     private int orderId;
     private String productName;
     private String productCategory;

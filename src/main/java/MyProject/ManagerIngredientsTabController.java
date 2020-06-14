@@ -13,7 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class IngredientsTabController {
+public class ManagerIngredientsTabController {
     @FXML private MainController mainController;
     @FXML private TableView<Ingredient> ingredientsTable;
     @FXML private TableColumn<Ingredient, String> ingredients_ingredient_id_column;
@@ -26,7 +26,7 @@ public class IngredientsTabController {
     @FXML
     private void initialize(){
         mainController = MainController.getMainControllerInstance();
-        ingredients_ingredient_id_column.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        ingredients_ingredient_id_column.setCellValueFactory(new PropertyValueFactory<>("IngredientId"));
         ingredients_name_column.setCellValueFactory(new PropertyValueFactory<>("Name"));
         ingredients_description_column.setCellValueFactory(new PropertyValueFactory<>("Description"));
         ingredients_quantity_column.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
@@ -34,29 +34,26 @@ public class IngredientsTabController {
     }
 
     @FXML
-    private void showAll(ActionEvent event){//1
-        //show all products in the table
+    private void showAll(ActionEvent event){
         ingredientsTable.getItems().clear();
-        ingredientsTable.getItems().addAll(mainController.generateTestDataIngredients());
+        mainController.getIngredientsFromDatabase();
+        ingredientsTable.getItems().addAll(mainController.getIngredientList());
     }
 
     @FXML
-    private void editDetails(ActionEvent event) throws Exception{
-        //show choosen item as text in a popup window
-        //or add a listView on the side
+    private void edit(ActionEvent event) throws Exception{
         Ingredient ingredient = ingredientsTable.getSelectionModel().getSelectedItem();
         if(ingredient == null){
             alert = new Alert(Alert.AlertType.WARNING, "Choose an ingredient from table.", ButtonType.OK);
             alert.showAndWait();
         }else{
-            //mainController.setIngredientToEdit(ingredient);
-            Parent root = FXMLLoader.load(getClass().getResource("../../resources/MyProject/IngredientEditView.fxml"));
+            mainController.setIngredientToChange(ingredient);
+            Parent root = FXMLLoader.load(getClass().getResource("ManagerIngredientEditView.fxml"));
             Stage smallStage = new Stage();
             smallStage.setTitle("Ingredient details");
-            smallStage.setScene(new Scene(root, 400, 600));
+            smallStage.setScene(new Scene(root, 600, 600));
             root.requestFocus();
             smallStage.showAndWait();
         }
     }
-
 }

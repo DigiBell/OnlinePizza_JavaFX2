@@ -41,10 +41,8 @@ public class ManagerHomeController {
      */
     @FXML
     private void homeLogOut(ActionEvent event)throws Exception{
-        //productTable.getItems().clear(); Need to clear all tables in all tabs
-        mainController.clearAllData();
-        //open login window
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/MyProject/LoginView.fxml"));
+        mainController.clearDataManager();
+        Parent root = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root, mainController.MAIN_STAGE_WIDTH, mainController.MAIN_STAGE_HEIGHT));
         root.requestFocus();
@@ -56,7 +54,7 @@ public class ManagerHomeController {
      * @throws Exception
      */
     private void changeToCreateEmployeeAccount() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../resources/MyProject/CreateEmployeeAccountView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("CreateEmployeeAccountView.fxml"));
         Stage smallStage = new Stage();
         smallStage.setTitle("Create employee account");
         smallStage.setScene(new Scene(root, 600, 600));

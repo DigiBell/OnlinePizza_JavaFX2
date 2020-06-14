@@ -24,14 +24,15 @@ public class OrderLine {
 
     @Override
     public String toString() {
-        return "OrderLine{" +
-                "productId=" + productId +
-                ", productName='" + productName + '\'' +
-                ", productCategory='" + productCategory + '\'' +
-                ", details='" + details + '\'' +
-                ", comment='" + comment + '\'' +
-                ", totalPrice=" + totalPrice +
-                '}';
+        String str ="{ id=" + productId +
+                ", name='" + productName + '\'' +
+                ", category='" + productCategory + '\'' +
+                ", details='" + details + '\'' ;
+        if(comment != null){
+            str = str + ", comment='" + comment + '\'';
+        }
+        str = str + ", price=" + totalPrice + "kr }";
+        return str;
     }
 
     public int getProductId() {

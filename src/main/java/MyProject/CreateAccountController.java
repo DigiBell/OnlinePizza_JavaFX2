@@ -105,33 +105,23 @@ public class CreateAccountController {
      */
     private boolean getUserInput(){
         if (create_email_field.getText().isEmpty()){ return false;
-        }else{
-            System.out.println("\nget user input email");
-            newAccount.setEmail(create_email_field.getText()); }
+        }else{ newAccount.setEmail(create_email_field.getText()); }
         if (create_password_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setPassword(create_password_field.getText()); }
+        }else{ newAccount.setPassword(create_password_field.getText()); }
         if (create_first_name_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setFirstName(create_first_name_field.getText()); }
+        }else{ newAccount.setFirstName(create_first_name_field.getText()); }
         if (create_last_name_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setLastName(create_last_name_field.getText()); }
+        }else{ newAccount.setLastName(create_last_name_field.getText()); }
         if (create_country_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setCountry(create_country_field.getText()); }
+        }else{ newAccount.setCountry(create_country_field.getText()); }
         if (create_city_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setCity(create_city_field.getText()); }
+        }else{ newAccount.setCity(create_city_field.getText()); }
         if (create_street_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setStreet(create_street_field.getText()); }
+        }else{ newAccount.setStreet(create_street_field.getText()); }
         if (create_postal_code_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setPostCode(create_postal_code_field.getText()); }
+        }else{ newAccount.setPostCode(create_postal_code_field.getText()); }
         if (create_phone_number_field.getText().isEmpty()){ return false;
-        }else{
-            newAccount.setPhoneNumber(create_phone_number_field.getText()); }
+        }else{ newAccount.setPhoneNumber(create_phone_number_field.getText()); }
         return true;
     }
 }

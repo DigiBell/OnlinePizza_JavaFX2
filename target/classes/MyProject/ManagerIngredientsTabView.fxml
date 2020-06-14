@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane fx:id="IngredientsTab" prefHeight="620.0" prefWidth="650.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyProject.IngredientsTabController">
+<BorderPane fx:id="IngredientsTab" prefHeight="620.0" prefWidth="650.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyProject.ManagerIngredientsTabController">
     <center>
         <TableView fx:id="ingredientsTable" layoutY="15.0" prefHeight="500.0" prefWidth="650.0">
             <columns>
@@ -30,7 +30,7 @@
                     <HBox.margin>
                         <Insets left="25.0" top="25.0" />
                     </HBox.margin></Label>
-                        <Button fx:id="edit_ingredients_button" onAction="#editDetails" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Edit">
+                        <Button fx:id="edit_ingredients_button" onAction="#edit" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Edit">
                     <HBox.margin>
                         <Insets right="20.0" top="25.0" />
                     </HBox.margin></Button>
