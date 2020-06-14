@@ -2,49 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyProject/ManagerTopProductSalesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/MyProject/ManagerTopProductSales.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/CreateAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/CreateEmployeeAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/CreateEmployeeAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/CustomerHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/CustomerHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/IngredientEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/IngredientsTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientsTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/ManagerHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/ManagerHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/Model/OrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/Model/OrderLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/Model/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/Model/Sale.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/OrdersTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/ManagerOrdersTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/ProductsTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/ManagerProductsTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/SalesTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/ManagerSalesTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MyProject/IngredientEditView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyProject/ManagerIngredientEditView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MyProject/IngredientsTabView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyProject/ManagerIngredientsTabView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MyProject/ManagerHomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyProject/ManagerHomeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MyProject/OrdersTabView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyProject/ManagerOrdersTabView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MyProject/ProductsTabView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyProject/ManagerProductsTabView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MyProject/SalesTabView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyProject/ManagerSalesTabView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/CreateAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/CreateAccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/CreateEmployeeAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/CreateEmployeeAccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/CustomerHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/CustomerHomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/IngredientEditController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/IngredientEditView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/IngredientsTabController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/IngredientsTabView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MyProject/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/ManagerHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/ManagerHomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/ManagerHomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/ManagerHomeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/Model/OrderLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/Model/OrderLine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/Model/Sale.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/Model/Sale.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MyProject/MongoDBController/MongoDBController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/MongoDBController/MongoDBController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/OrdersTabController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/OrdersTabView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/ProductsTabController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/ProductsTabView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/SalesTabController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/SalesTabView.fxml" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -103,42 +64,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ManagerIngredientEditController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ManagerIngredientEditController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientEditController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="246">
+              <caret line="40" column="54" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManagerIngredientsTabController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientsTabController.java">
+      <file leaf-file-name="MongoDBController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="17">
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+              <folding>
+                <element signature="e#2708#2753#0" />
+                <element signature="method#deleteCollections#0;class#MongoDBController#0" />
+                <element signature="method#createCollections#0;class#MongoDBController#0" />
+                <element signature="method#sendProducts#0;class#MongoDBController#0" />
+                <element signature="method#getProducts#0;class#MongoDBController#0" />
+                <element signature="method#sendIngredients#0;class#MongoDBController#0" />
+                <element signature="method#getIngredients#0;class#MongoDBController#0" />
+                <element signature="method#updateIngredinet#0;class#MongoDBController#0" />
+                <element signature="method#sendAccount#0;class#MongoDBController#0" />
+                <element signature="method#getAccount#0;class#MongoDBController#0" />
+                <element signature="method#getAccount#1;class#MongoDBController#0" />
+                <element signature="method#sendOrder#0;class#MongoDBController#0" />
+                <element signature="method#sendSales#0;class#MongoDBController#0" />
+                <element signature="method#updateProduct#0;class#MongoDBController#0" />
+                <element signature="method#getOrders#0;class#MongoDBController#0" />
+                <element signature="method#getOrders#1;class#MongoDBController#0" />
+                <element signature="method#getSales#0;class#MongoDBController#0" />
+                <element signature="method#getSales#1;class#MongoDBController#0" />
+                <element signature="method#getTopSales#0;class#MongoDBController#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManagerIngredientEditView.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/ManagerIngredientEditView.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+      <file leaf-file-name="Ingredient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-612" />
+            <state relative-caret-position="17">
+              <caret line="11" column="15" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="15" />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="281" column="73" selection-start-line="281" selection-start-column="73" selection-end-line="281" selection-end-column="73" />
+            <state relative-caret-position="3565">
+              <caret line="280" column="40" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#14489#15589#0" />
-                <element signature="e#15595#15902#0" />
-                <element signature="e#16020#16723#0" />
               </folding>
             </state>
           </provider>
@@ -183,7 +163,6 @@
         <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/IngredientStockItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/ProductStockItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/MenuItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/OrderDetailsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/UserHomeOrderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/UserHomeController.java" />
@@ -218,10 +197,11 @@
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerTopProductSalesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerSalesTabController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerOrdersTabController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientsTabController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientEditController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java" />
       </list>
     </option>
   </component>
@@ -282,7 +262,6 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -353,6 +332,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -400,7 +380,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.MongoDBController">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -546,6 +526,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
@@ -556,13 +537,12 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013423" side_tool="true" weight="0.32905984" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.26845637" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.497151" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.2065527" />
       <window_info anchor="right" id="Mongo Explorer" order="8" weight="0.3295302" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32905984" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59398496" visible="true" weight="0.21744967" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.34045583" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59398496" visible="true" weight="0.21610738" />
       <window_info id="Structure" order="1" sideWeight="0.25721785" side_tool="true" weight="0.17651007" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
@@ -573,6 +553,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.34045583" />
       <window_info anchor="bottom" id="Changes" order="7" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Profiler" order="9" />
@@ -585,9 +566,8 @@
       <window_info anchor="bottom" id="Application Servers" order="11" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="JetGradle" order="5" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.13390313" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="JetGradle" order="5" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="bottom" id="Profiler" order="9" />
@@ -597,23 +577,24 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013423" side_tool="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.25783476" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="right" id="Mongo Explorer" order="8" weight="0.3295302" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Problems" order="10" />
-      <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.26845637" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32905984" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.34045583" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59398496" visible="true" weight="0.1624161" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
+      <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="10" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info id="Structure" order="1" sideWeight="0.25721785" side_tool="true" weight="0.17651007" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.34045583" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
     </layout-to-restore>
   </component>
@@ -634,6 +615,30 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientEditController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientsTabController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4539">
+          <caret line="281" column="73" selection-start-line="281" selection-start-column="73" selection-end-line="281" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.7/lib/src.zip!/java.base/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -719,10 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/CreateAccountView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/CreateEmployeeAccountController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -741,30 +742,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/ManagerHomeView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/ManagerOrdersTabView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="101" selection-start-line="19" selection-start-column="101" selection-end-line="19" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.7/lib/src.zip!/java.base/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="668" column="19" selection-start-line="668" selection-start-column="19" selection-end-line="668" selection-end-column="19" />
-          <folding>
-            <element signature="e#24832#24833#0" expanded="true" />
-            <element signature="e#24872#24873#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -803,10 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-646">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding>
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#819#820#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -824,22 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/ManagerSalesTabView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="42" column="102" selection-start-line="42" selection-start-column="102" selection-end-line="42" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/ManagerProductsTabView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="91" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerProductsTabController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
@@ -854,10 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/CustomerHomeView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/CustomerCustomPizzaController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -869,14 +826,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
           <caret line="116" column="59" lean-forward="true" selection-start-line="116" selection-start-column="59" selection-end-line="116" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/ManagerTopProductSales.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="86" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
         </state>
       </provider>
     </entry>
@@ -911,30 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="141" column="25" selection-start-line="141" selection-start-column="25" selection-end-line="141" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1754#1799#0" />
-            <element signature="method#sendProducts#0;class#MongoDBController#0" />
-            <element signature="method#getProducts#0;class#MongoDBController#0" />
-            <element signature="method#sendAccount#0;class#MongoDBController#0" />
-            <element signature="method#getAccount#1;class#MongoDBController#0" />
-            <element signature="method#sendOrder#0;class#MongoDBController#0" />
-            <element signature="method#sendSales#0;class#MongoDBController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/CreateAccountController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -942,36 +867,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MainController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientsTabController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="281" column="73" selection-start-line="281" selection-start-column="73" selection-end-line="281" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#14489#15589#0" />
-            <element signature="e#15595#15902#0" />
-            <element signature="e#16020#16723#0" />
-          </folding>
+        <state relative-caret-position="748">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/ManagerIngredientEditView.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientsTabController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="17">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientEditController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="246">
+          <caret line="40" column="54" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3565">
+          <caret line="280" column="40" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="e#2708#2753#0" />
+            <element signature="method#deleteCollections#0;class#MongoDBController#0" />
+            <element signature="method#createCollections#0;class#MongoDBController#0" />
+            <element signature="method#sendProducts#0;class#MongoDBController#0" />
+            <element signature="method#getProducts#0;class#MongoDBController#0" />
+            <element signature="method#sendIngredients#0;class#MongoDBController#0" />
+            <element signature="method#getIngredients#0;class#MongoDBController#0" />
+            <element signature="method#updateIngredinet#0;class#MongoDBController#0" />
+            <element signature="method#sendAccount#0;class#MongoDBController#0" />
+            <element signature="method#getAccount#0;class#MongoDBController#0" />
+            <element signature="method#getAccount#1;class#MongoDBController#0" />
+            <element signature="method#sendOrder#0;class#MongoDBController#0" />
+            <element signature="method#sendSales#0;class#MongoDBController#0" />
+            <element signature="method#updateProduct#0;class#MongoDBController#0" />
+            <element signature="method#getOrders#0;class#MongoDBController#0" />
+            <element signature="method#getOrders#1;class#MongoDBController#0" />
+            <element signature="method#getSales#0;class#MongoDBController#0" />
+            <element signature="method#getSales#1;class#MongoDBController#0" />
+            <element signature="method#getTopSales#0;class#MongoDBController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
