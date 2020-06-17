@@ -44,7 +44,7 @@ public class CustomerCustomPizzaController {
     private void addPizzaToCart( boolean extra_cmc, boolean extra_other, String comment){
         Product productSelected = mainController.getProductSelected();
         String details = " (" + productSelected.getSize() + productSelected.getUnits() + ") ";
-        int price = productSelected.getPrice();
+        double price = productSelected.getPrice();
         if(extra_cmc){
             details = details + "(Extra Ost/Kött/Kyckling";
             for (Product product: mainController.getProductsExtraCMC()) {

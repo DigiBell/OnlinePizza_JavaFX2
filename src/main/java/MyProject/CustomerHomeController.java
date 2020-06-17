@@ -85,7 +85,7 @@ public class CustomerHomeController {
         orderLine.setProductCategory(productSelected.getCategory());
         orderLine.setDetails(details);
         orderLine.setComment(null);
-        orderLine.setTotalPrice(productSelected.getPrice());
+        orderLine.setTotalPrice(Double.valueOf(productSelected.getPrice()));
 
         String cartLine = "" + orderLine.getProductName() + orderLine.getDetails() + "price: " + orderLine.getTotalPrice();
 
@@ -101,7 +101,7 @@ public class CustomerHomeController {
     private void addLineToCart(){
         String cartLine = mainController.getCartLine();
         System.out.println("cartline:" + cartLine);
-        int price = mainController.getOrderLine().getTotalPrice();
+        double price = mainController.getOrderLine().getTotalPrice();
         double totalPrice = mainController.getTotalPrice();
         totalPrice = totalPrice + price;
         mainController.setTotalPrice(totalPrice);

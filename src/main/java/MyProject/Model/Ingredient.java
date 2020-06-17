@@ -6,15 +6,15 @@ import org.bson.types.ObjectId;
 public class Ingredient {
     private ObjectId id;
     @BsonProperty(value="ingredient_id")
-    private int ingredientId;
+    private Integer ingredientId;
     private String name;
     private String description;
-    private int quantity;
+    private Integer quantity;
     private String units;
 
     public Ingredient() { }
 
-    public Ingredient(int ingredientId, String name, String description, int quantity, String units) {
+    public Ingredient(Integer ingredientId, String name, String description, Integer quantity, String units) {
         this.ingredientId = ingredientId;
         this.name = name;
         this.description = description;
@@ -30,11 +30,11 @@ public class Ingredient {
         this.id = id;
     }
 
-    public int getIngredientId() {
+    public Integer getIngredientId() {
         return ingredientId;
     }
 
-    public void setIngredientId(int ingredientId) {
+    public void setIngredientId(Integer ingredientId) {
         this.ingredientId = ingredientId;
     }
 
@@ -54,11 +54,11 @@ public class Ingredient {
         this.description = description;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

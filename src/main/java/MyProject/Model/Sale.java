@@ -6,19 +6,19 @@ import java.util.Date;
 
 public class Sale {
     private ObjectId id;
-    //@BsonProperty(value="produc_id")
-    private int productId;
-   //@BsonProperty(value="order_id")
-    private int orderId;
+    @BsonProperty(value="product_id")
+    private Integer productId;
+   @BsonProperty(value="order_id")
+    private Integer orderId;
     private String productName;
     private String productCategory;
     private Date date;
-    private int quantity;
-    private int price;
+    private Integer quantity;
+    private Double price;
 
     public Sale(){}
 
-    public Sale(int productId, int orderId, String productName, String productCategory, Date date, int quantity, int price) {
+    public Sale(Integer productId, Integer orderId, String productName, String productCategory, Date date, Integer quantity, Double price) {
         this.productId = productId;
         this.orderId = orderId;
         this.productName = productName;
@@ -50,19 +50,19 @@ public class Sale {
         this.id = id;
     }
 
-    public int getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
-    public int getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 
@@ -90,19 +90,19 @@ public class Sale {
         this.date = date;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }
