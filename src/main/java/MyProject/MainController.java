@@ -144,9 +144,9 @@ public class MainController {
         productList.add(product);
         product = new Product(614, "Extras", "Extra Övrigt", "Other", "20","cm", 5, true, null);
         productList.add(product);
-        product = new Product(615, "Extras", "Extra Övrigt", "Other", "30","cm", 5, true, null);
+        product = new Product(615, "Extras", "Extra Övrigt", "Other", "30","cm", 10, true, null);
         productList.add(product);
-        product = new Product(616, "Extras", "Extra Övrigt", "Other", "40","cm", 5, true, null);
+        product = new Product(616, "Extras", "Extra Övrigt", "Other", "40","cm", 15, true, null);
         productList.add(product);
 
         return productList;
@@ -303,10 +303,10 @@ public class MainController {
         setProductSelected(new Product());
         setOrderLine(new OrderLine());
         setCartLine("");
+        setCartLineList(null);
         getOrderLineList().clear();
         getProductsExtraCMC().clear();
         getProductsExtraOther().clear();
-        getCartLineList().clear();
         setTotalPrice(0.0);
     }
 
