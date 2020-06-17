@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="IntellijProjects:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/CustomerCustomPizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/CustomerCustomPizzaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/CustomerHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/CustomerHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/Model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/Model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/Model/OrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/Model/OrderLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/Model/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/Model/Sale.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/CustomerCustomPizzaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/CustomerCustomPizzaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/CustomerHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/CustomerHomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MyProject/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/ManagerIngredientEditController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/ManagerIngredientEditController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/ManagerOrderDetailsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/ManagerOrderDetailsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/Model/Ingredient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/Model/Ingredient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/Model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/Model/OrderLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/Model/OrderLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MyProject/Model/Sale.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/Model/Sale.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MyProject/MongoDBController/MongoDBController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyProject/MongoDBController/MongoDBController.class" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -64,22 +83,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ManagerIngredientEditController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientEditController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="40" column="54" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MongoDBController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MongoDBController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            <state relative-caret-position="411">
+              <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
               <folding>
-                <element signature="e#2708#2753#0" />
+                <element signature="imports" expanded="true" />
                 <element signature="method#deleteCollections#0;class#MongoDBController#0" />
                 <element signature="method#createCollections#0;class#MongoDBController#0" />
                 <element signature="method#sendProducts#0;class#MongoDBController#0" />
@@ -91,35 +101,19 @@
                 <element signature="method#getAccount#0;class#MongoDBController#0" />
                 <element signature="method#getAccount#1;class#MongoDBController#0" />
                 <element signature="method#sendOrder#0;class#MongoDBController#0" />
-                <element signature="method#sendSales#0;class#MongoDBController#0" />
                 <element signature="method#updateProduct#0;class#MongoDBController#0" />
                 <element signature="method#getOrders#0;class#MongoDBController#0" />
                 <element signature="method#getOrders#1;class#MongoDBController#0" />
-                <element signature="method#getSales#0;class#MongoDBController#0" />
-                <element signature="method#getSales#1;class#MongoDBController#0" />
-                <element signature="method#getTopSales#0;class#MongoDBController#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ingredient.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Ingredient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="11" column="15" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3565">
-              <caret line="280" column="40" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -151,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/NonPizzaProduct.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Pizza.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/OrderProductLine.java" />
@@ -170,8 +163,6 @@
         <option value="$PROJECT_DIR$/src/main/java/MyProject/IngredientEditController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/IngredientsTabController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/MyProject/CustomerHomeView.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Product.java" />
         <option value="$PROJECT_DIR$/.idea/vcs.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/MyProject/CustomPizzaView.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/CustomPizzaController.java" />
@@ -179,29 +170,32 @@
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerOrderDetailsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/MyProject/CustomerOrderDetailsView.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/CustomerOrderDetailsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Order.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/CustomerCustomPizzaController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/CreateAccountController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/CreateEmployeeAccountController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/MyProject/ManagerProductsTabView.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerProductsTabController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/MyProject/ManagerHomeView.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/MyProject/ManagerOrdersTabView.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/OrderLine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/CustomerHomeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerHomeController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/MyProject/ManagerSalesTabView.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/MyProject/ManagerTopProductSales.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Sale.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerTopProductSalesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerSalesTabController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerOrdersTabController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientsTabController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientEditController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Order.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/OrderLine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Sale.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/Model/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/CustomerHomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyProject/CustomerCustomPizzaController.java" />
       </list>
     </option>
   </component>
@@ -260,8 +254,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -328,11 +322,22 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="MyProject" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="My Intelij Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My Intelij Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My Intelij Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My Intelij Project" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,27 +350,27 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/Skrivbord/Copies/My Intelij Project" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\akira\Documents\Intellij Projects\My Intelij Project\src\main\resources" />
+      <recent name="C:\Users\akira\OneDrive\Skrivbord\My Intelij Project\src\main\resources\MyProject" />
+      <recent name="C:\Users\akira\Documents\IntellijProjects\src\main\resources\UserView" />
+      <recent name="C:\Users\akira\Documents\IntellijProjects\src\main\resources" />
+      <recent name="C:\Users\akira\Documents\IntellijProjects\src\layout" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="MyProject" />
       <recent name="UserView" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\akira\Documents\Intellij Projects\My Intelij Project\src\main\resources\MyProject" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\akira\OneDrive\Skrivbord\My Intelij Project\src\main\resources\MyProject" />
-      <recent name="C:\Users\akira\Documents\IntellijProjects\src\main\resources\UserView" />
-      <recent name="C:\Users\akira\Documents\IntellijProjects\src\main\resources" />
-      <recent name="C:\Users\akira\Documents\IntellijProjects\src\layout" />
-      <recent name="C:\Users\akira\Documents\IntellijProjects\src\sample" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -438,6 +443,16 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="OnlinePizza" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/IntellijProjects_jar/IntellijProjects.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\akira\Documents\Intellij Projects\My Intelij Project" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="IntellijProjects:jar" />
+        </option>
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -488,6 +503,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JAR Application.OnlinePizza" />
       <item itemvalue="Application.MongoDBController" />
       <item itemvalue="Application.Test" />
     </list>
@@ -537,12 +553,12 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013423" side_tool="true" weight="0.32905984" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.26845637" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.2065527" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.32478634" />
       <window_info anchor="right" id="Mongo Explorer" order="8" weight="0.3295302" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32905984" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59398496" visible="true" weight="0.21610738" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59398496" visible="true" weight="0.16308725" />
       <window_info id="Structure" order="1" sideWeight="0.25721785" side_tool="true" weight="0.17651007" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
@@ -566,8 +582,11 @@
       <window_info anchor="bottom" id="Application Servers" order="11" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.13390313" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.32478634" />
       <window_info anchor="right" id="JetGradle" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.34045583" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="bottom" id="Profiler" order="9" />
@@ -577,24 +596,21 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013423" side_tool="true" weight="0.32905984" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.25783476" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="right" id="Mongo Explorer" order="8" weight="0.3295302" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Problems" order="10" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.26845637" />
       <window_info anchor="bottom" id="Terminal" order="13" weight="0.32905984" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59398496" visible="true" weight="0.1624161" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59398496" visible="true" weight="0.17315437" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="right" id="Palette&#9;" order="10" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info id="Structure" order="1" sideWeight="0.25721785" side_tool="true" weight="0.17651007" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.34045583" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
     </layout-to-restore>
   </component>
@@ -615,6 +631,59 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4522">
+          <caret line="280" column="40" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2536#11319#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4522">
+          <caret line="280" column="40" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2536#11319#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#deleteCollections#0;class#MongoDBController#0" />
+            <element signature="method#createCollections#0;class#MongoDBController#0" />
+            <element signature="method#sendProducts#0;class#MongoDBController#0" />
+            <element signature="method#getProducts#0;class#MongoDBController#0" />
+            <element signature="method#sendIngredients#0;class#MongoDBController#0" />
+            <element signature="method#getIngredients#0;class#MongoDBController#0" />
+            <element signature="method#updateIngredinet#0;class#MongoDBController#0" />
+            <element signature="method#sendAccount#0;class#MongoDBController#0" />
+            <element signature="method#getAccount#0;class#MongoDBController#0" />
+            <element signature="method#getAccount#1;class#MongoDBController#0" />
+            <element signature="method#sendOrder#0;class#MongoDBController#0" />
+            <element signature="method#updateProduct#0;class#MongoDBController#0" />
+            <element signature="method#getOrders#0;class#MongoDBController#0" />
+            <element signature="method#getOrders#1;class#MongoDBController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientEditController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -635,6 +704,7 @@
           <caret line="281" column="73" selection-start-line="281" selection-start-column="73" selection-end-line="281" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2536#11319#0" />
           </folding>
         </state>
       </provider>
@@ -646,23 +716,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Pizza.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/NonPizzaProduct.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Test.java" />
-    <entry file="file://$PROJECT_DIR$/IntellijProjects.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/OrderProductLine.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-sync/4.0.4/mongodb-driver-sync-4.0.4.jar!/com/mongodb/client/internal/MongoDatabaseImpl.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -682,13 +738,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerOrderDetailsController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/CustomerOrderDetailsController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-core/4.0.4/mongodb-driver-core-4.0.4.jar!/com/mongodb/client/model/Updates.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2754">
@@ -728,17 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-          <folding>
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1098#1099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -746,13 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="668" column="19" selection-start-line="668" selection-start-column="19" selection-end-line="668" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/OrderLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -770,13 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -815,34 +839,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/CustomerCustomPizzaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="40" column="22" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="40" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/CustomerHomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="116" column="59" lean-forward="true" selection-start-line="116" selection-start-column="59" selection-end-line="116" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Sale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerTopProductSalesController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="22" column="108" selection-start-line="22" selection-start-column="108" selection-end-line="22" selection-end-column="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -874,17 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MyProject/ManagerIngredientEditView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/ManagerIngredientEditController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -892,22 +881,193 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntellijProjects.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="81" column="33" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+          <folding>
+            <element signature="e#1168#1169#0" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="true" />
+            <element signature="e#1234#1235#0" expanded="true" />
+            <element signature="e#1269#1270#0" expanded="true" />
+            <element signature="e#1299#1300#0" expanded="true" />
+            <element signature="e#1346#1347#0" expanded="true" />
+            <element signature="e#1384#1385#0" expanded="true" />
+            <element signature="e#1418#1419#0" expanded="true" />
+            <element signature="e#1447#1448#0" expanded="true" />
+            <element signature="e#1492#1493#0" expanded="true" />
+            <element signature="e#1528#1529#0" expanded="true" />
+            <element signature="e#1557#1558#0" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
+            <element signature="e#1622#1623#0" expanded="true" />
+            <element signature="e#1654#1655#0" expanded="true" />
+            <element signature="e#1700#1701#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1838#1839#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
+            <element signature="e#1908#1909#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2004#2005#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Sale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+          <folding>
+            <element signature="e#1378#1379#0" expanded="true" />
+            <element signature="e#1416#1417#0" expanded="true" />
+            <element signature="e#1444#1445#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+            <element signature="e#1513#1514#0" expanded="true" />
+            <element signature="e#1564#1565#0" expanded="true" />
+            <element signature="e#1606#1607#0" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1718#1719#0" expanded="true" />
+            <element signature="e#1756#1757#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1828#1829#0" expanded="true" />
+            <element signature="e#1882#1883#0" expanded="true" />
+            <element signature="e#1928#1929#0" expanded="true" />
+            <element signature="e#1970#1971#0" expanded="true" />
+            <element signature="e#2008#2009#0" expanded="true" />
+            <element signature="e#2070#2071#0" expanded="true" />
+            <element signature="e#2124#2125#0" expanded="true" />
+            <element signature="e#2153#2154#0" expanded="true" />
+            <element signature="e#2180#2181#0" expanded="true" />
+            <element signature="e#2218#2219#0" expanded="true" />
+            <element signature="e#2250#2251#0" expanded="true" />
+            <element signature="e#2286#2287#0" expanded="true" />
+            <element signature="e#2317#2318#0" expanded="true" />
+            <element signature="e#2366#2367#0" expanded="true" />
+            <element signature="e#2406#2407#0" expanded="true" />
+            <element signature="e#2438#2439#0" expanded="true" />
+            <element signature="e#2466#2467#0" expanded="true" />
+            <element signature="e#2508#2509#0" expanded="true" />
+            <element signature="e#2542#2543#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="109" column="32" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
+          <folding>
+            <element signature="e#1520#1521#0" expanded="true" />
+            <element signature="e#1545#1546#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1611#1612#0" expanded="true" />
+            <element signature="e#1648#1649#0" expanded="true" />
+            <element signature="e#1680#1681#0" expanded="true" />
+            <element signature="e#1731#1732#0" expanded="true" />
+            <element signature="e#1773#1774#0" expanded="true" />
+            <element signature="e#1808#1809#0" expanded="true" />
+            <element signature="e#1839#1840#0" expanded="true" />
+            <element signature="e#1887#1888#0" expanded="true" />
+            <element signature="e#1927#1928#0" expanded="true" />
+            <element signature="e#1958#1959#0" expanded="true" />
+            <element signature="e#1985#1986#0" expanded="true" />
+            <element signature="e#2025#2026#0" expanded="true" />
+            <element signature="e#2057#2058#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+            <element signature="e#2129#2130#0" expanded="true" />
+            <element signature="e#2183#2184#0" expanded="true" />
+            <element signature="e#2229#2230#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
+            <element signature="e#2287#2288#0" expanded="true" />
+            <element signature="e#2327#2328#0" expanded="true" />
+            <element signature="e#2359#2360#0" expanded="true" />
+            <element signature="e#2391#2392#0" expanded="true" />
+            <element signature="e#2419#2420#0" expanded="true" />
+            <element signature="e#2461#2462#0" expanded="true" />
+            <element signature="e#2495#2496#0" expanded="true" />
+            <element signature="e#2527#2528#0" expanded="true" />
+            <element signature="e#2555#2556#0" expanded="true" />
+            <element signature="e#2597#2598#0" expanded="true" />
+            <element signature="e#2631#2632#0" expanded="true" />
+            <element signature="e#2668#2669#0" expanded="true" />
+            <element signature="e#2700#2701#0" expanded="true" />
+            <element signature="e#2751#2752#0" expanded="true" />
+            <element signature="e#2793#2794#0" expanded="true" />
+            <element signature="e#2829#2830#0" expanded="true" />
+            <element signature="e#2860#2861#0" expanded="true" />
+            <element signature="e#2909#2910#0" expanded="true" />
+            <element signature="e#2949#2950#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3565">
-          <caret line="280" column="40" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="40" />
+        <state relative-caret-position="409">
+          <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2536#11319#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/OrderLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/CustomerCustomPizzaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/CustomerHomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="104" column="59" lean-forward="true" selection-start-line="104" selection-start-column="59" selection-end-line="104" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/MongoDBController/MongoDBController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state relative-caret-position="411">
+          <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
           <folding>
-            <element signature="e#2708#2753#0" />
+            <element signature="imports" expanded="true" />
             <element signature="method#deleteCollections#0;class#MongoDBController#0" />
             <element signature="method#createCollections#0;class#MongoDBController#0" />
             <element signature="method#sendProducts#0;class#MongoDBController#0" />
@@ -919,14 +1079,17 @@
             <element signature="method#getAccount#0;class#MongoDBController#0" />
             <element signature="method#getAccount#1;class#MongoDBController#0" />
             <element signature="method#sendOrder#0;class#MongoDBController#0" />
-            <element signature="method#sendSales#0;class#MongoDBController#0" />
             <element signature="method#updateProduct#0;class#MongoDBController#0" />
             <element signature="method#getOrders#0;class#MongoDBController#0" />
             <element signature="method#getOrders#1;class#MongoDBController#0" />
-            <element signature="method#getSales#0;class#MongoDBController#0" />
-            <element signature="method#getSales#1;class#MongoDBController#0" />
-            <element signature="method#getTopSales#0;class#MongoDBController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyProject/Model/Ingredient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -936,11 +1099,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>JavaFXApp</last-edited>
+          <last-edited>IntellijProjects:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -948,7 +1112,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -989,7 +1153,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -997,11 +1160,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>javafx-swt</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.3283237" />
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

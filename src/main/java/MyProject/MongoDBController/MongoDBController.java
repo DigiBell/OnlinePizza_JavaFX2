@@ -13,7 +13,6 @@ import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.conversions.Bson;
-import org.bson.json.JsonWriterSettings;
 import java.util.ArrayList;
 import static com.mongodb.client.model.Accumulators.sum;
 import static com.mongodb.client.model.Aggregates.*;
@@ -28,7 +27,6 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,14 +58,14 @@ public class MongoDBController {
         database = mongoClient.getDatabase("OnlinePizza");
     }
 
-//    public static void main(String[] args){
-//        deleteCollections();
-//        createCollections();
-//
-//        sendProducts();
-//        sendAccount(mainController.generateManager());
-//        sendIngredients();
-//    }
+    public static void main(String[] args){
+        deleteCollections();
+        createCollections();
+
+        sendProducts();
+        sendAccount(mainController.generateManager());
+        sendIngredients();
+    }
 
 
     //DELETE COLLECTIONS
@@ -259,8 +257,8 @@ public class MongoDBController {
         MongoCollection<Document> sales = database.getCollection("Sales");
         try {
             Bson match = match(and(lt("date", to), gt("date", from)));
-            Bson group = group("$productId", sum("quantity", "$quantity"), Accumulators.first("productName", "$productName"), Accumulators.first("productName", "$productName"));
-            Bson project = project(fields(computed("productId", "$_id"), include("productName", "quantity")));
+            Bson group = group("$product_id", sum("quantity", "$quantity"), Accumulators.first("productName", "$productName"), Accumulators.first("productName", "$productName"));
+            Bson project = project(fields(computed("product_id", "$_id"), include("productName", "quantity")));
             Bson sort = sort(descending("quantity"));
             List<Document> saleDocumentList = sales.aggregate(Arrays.asList(match, group, project, sort)).into(new ArrayList<>());
 
@@ -269,8 +267,6 @@ public class MongoDBController {
             return null;
         }
     }
-    private static Consumer<Document> printDocuments(){
-        return document -> System.out.println(document.toJson(JsonWriterSettings.builder().indent(true).build()));
-    }
+
 }
 

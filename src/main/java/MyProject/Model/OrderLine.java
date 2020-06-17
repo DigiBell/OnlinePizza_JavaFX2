@@ -4,16 +4,16 @@ import org.bson.codecs.pojo.annotations.BsonProperty;
 
 public class OrderLine {
     @BsonProperty(value="product_id")
-    private int productId;
+    private Integer productId;
     private String productName;
     private String productCategory;
     private String details;
     private String comment;
-    private int totalPrice;
+    private Double totalPrice;
 
     public OrderLine() { }
 
-    public OrderLine(int productId, String productName, String productCategory, String details, String comment, int totalPrice) {
+    public OrderLine(Integer productId, String productName, String productCategory, String details, String comment, Double totalPrice) {
         this.productId = productId;
         this.productName = productName;
         this.productCategory = productCategory;
@@ -35,11 +35,11 @@ public class OrderLine {
         return str;
     }
 
-    public int getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
@@ -75,11 +75,11 @@ public class OrderLine {
         this.comment = comment;
     }
 
-    public int getTotalPrice() {
+    public Double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

@@ -9,16 +9,16 @@ import java.util.List;
 public class Order {
     private ObjectId id;
     @BsonProperty(value="order_id")
-    private int orderId;
+    private Integer orderId;
     @BsonProperty(value="user_id")
-    private int userId; //or Account user with all user information
+    private Integer userId; //or Account user with all user information
     private Date date;
     private List<OrderLine> orderLines;
-    private double totalPrice;
+    private Double totalPrice;
 
     public Order() { }
 
-    public Order(int orderId, int userId, Date date, List<OrderLine> orderLines, double totalPrice) {
+    public Order(Integer orderId, Integer userId, Date date, List<OrderLine> orderLines, Double totalPrice) {
         this.orderId = orderId;
         this.userId = userId;
         this.date = date;
@@ -46,19 +46,19 @@ public class Order {
         this.id = id;
     }
 
-    public int getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -78,11 +78,11 @@ public class Order {
         this.orderLines = orderLines;
     }
 
-    public double getTotalPrice() {
+    public Double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }
