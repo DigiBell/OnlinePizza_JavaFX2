@@ -3,6 +3,7 @@ package MyProject;
 import MyProject.Model.Order;
 import MyProject.Model.OrderLine;
 import MyProject.Model.Product;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,7 +43,8 @@ public class CustomerHomeController {
         category_column.setCellValueFactory(new PropertyValueFactory<>("Category"));
         name_column.setCellValueFactory(new PropertyValueFactory<>("Name"));
         description_column.setCellValueFactory(new PropertyValueFactory<>("Description"));
-        size_column.setCellValueFactory(new PropertyValueFactory<>("Size"));
+        //size_column.setCellValueFactory(new PropertyValueFactory<>("Size"));
+        size_column.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getSize() + " " + p.getValue().getUnits()));
         price_column.setCellValueFactory(new PropertyValueFactory<>("Price"));
         mainController.getProductsFromDatabase();
         productTable.getItems().addAll(mainController.getProductListCustomer());

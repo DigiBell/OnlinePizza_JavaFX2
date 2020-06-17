@@ -58,14 +58,14 @@ public class MongoDBController {
         database = mongoClient.getDatabase("OnlinePizza");
     }
 
-    public static void main(String[] args){
-        deleteCollections();
-        createCollections();
-
-        sendProducts();
-        sendAccount(mainController.generateManager());
-        sendIngredients();
-    }
+//    public static void main(String[] args){
+//        deleteCollections();
+//        createCollections();
+//
+//        sendProducts();
+//        sendAccount(mainController.generateManager());
+//        sendIngredients();
+//    }
 
 
     //DELETE COLLECTIONS
