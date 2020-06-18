@@ -154,6 +154,7 @@ public class CustomerHomeController {
         order.setTotalPrice(mainController.getTotalPrice());
         if(!order.getOrderLines().isEmpty()){
             if(mainController.sendOrderToDatabase(order)){
+                cart_list_view.getItems().clear();
                 mainController.clearCart();
                 alert = new Alert(Alert.AlertType.CONFIRMATION, "Order is sent", ButtonType.OK);
                 alert.showAndWait();

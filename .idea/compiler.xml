@@ -16,11 +16,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="IntellijProjects" />
+        <module name="My Intelij Project" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="IntellijProjects" target="1.11" />
+      <module name="IntellijProjects" target="11" />
+      <module name="My Intelij Project" target="1.11" />
     </bytecodeTargetLevel>
   </component>
 </project>
