@@ -79,13 +79,15 @@ public class CustomerHomeController {
 
     private void addNonPizzaToCart( ){
         Product productSelected = mainController.getProductSelected();
-        String details = " (" + productSelected.getSize() + productSelected.getUnits() + ") ";
-
         OrderLine orderLine = new OrderLine();
         orderLine.setProductId(productSelected.getProductId());
         orderLine.setProductName(productSelected.getName());
         orderLine.setProductCategory(productSelected.getCategory());
-        orderLine.setDetails(details);
+        if(productSelected.getSize().trim().isEmpty() && productSelected.getUnits().trim().isEmpty()){
+            orderLine.setDetails(null);
+        }else{
+            orderLine.setDetails(" (" + productSelected.getSize() + productSelected.getUnits() + ") ");
+        }
         orderLine.setComment(null);
         orderLine.setTotalPrice(Double.valueOf(productSelected.getPrice()));
 
@@ -163,12 +165,6 @@ public class CustomerHomeController {
                 alert.showAndWait();
             }
         }
-
-//        Parent root = FXMLLoader.load(getClass().getResource("CustomerOrderDetailsView.fxml"));
-//        Stage smallStage = new Stage();
-//        smallStage.setScene(new Scene(root, 500, 500));
-//        root.requestFocus();
-//        smallStage.showAndWait();
     }
 
     /**

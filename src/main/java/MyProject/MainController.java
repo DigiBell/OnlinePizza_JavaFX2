@@ -5,6 +5,9 @@ import MyProject.MongoDBController.MongoDBController;
 import javafx.collections.ObservableList;
 import org.bson.Document;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +21,7 @@ public class MainController {
     public final static String EMPLOYEE_ACCESS_LEVEL = "employee";
     public final static String MANAGER_ACCESS_LEVEL = "manager";
     private Random rand = new Random();
-
+    private List<Product> productListToDatabase = new ArrayList<>();
     private Account loginAccount;
 
     //CUSTOMER VARIABLES
@@ -61,98 +64,183 @@ public class MainController {
         return account;
     }
 
-    public List<Product> generateTestData(){
-        productList = new ArrayList<>();
+    public List<Product> generateProductCollection()throws Exception{
+        System.out.println("generateProductCollection");
 
-        Product product = new Product(111, "Pizza", "Basic", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ", "20", "cm", 49, true, null);
-        productList.add(product);
-        product = new Product(112, "Pizza", "Basic", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ","30",  "cm", 79, true, null);
-        productList.add(product);
-        product = new Product(113, "Pizza", "Basic", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ", "40", "cm", 119, true, null);
-        productList.add(product);
-        product = new Product(114, "Pizza", "Basic (Glutenfree)", "Cheese and tomato sauce – and nothing else! \nOst, tomatsås – och bara det! ", "30","cm", 139, true, null);
-        productList.add(product);
-        product = new Product(115, "Pizza", "HAWAII 5-0", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", "20", "cm", 65, true, null);
-        productList.add(product);
-        product = new Product(116, "Pizza", "HAWAII 5-0", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", "30","cm", 105, true, null);
-        productList.add(product);
-        product = new Product(117, "Pizza", "HAWAII 5-0", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", "40","cm", 159, true, null);
-        productList.add(product);
-        product = new Product(118, "Pizza", "HAWAII 5-0 (Glutenfree)", "Cheese, tomato sauce, minced meat, onion and pineapple \nOst, tomatsås, köttfärs, lök och ananas", "30", "cm", 139, true, null);
-        productList.add(product);
-        product = new Product(119, "Pizza", "SVINGOD", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  "20", "cm", 59, true, null);
-        productList.add(product);
-        product = new Product(120, "Pizza", "SVINGOD", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  "30", "cm", 99, true, null);
-        productList.add(product);
-        product = new Product(121, "Pizza", "SVINGOD", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  "40", "cm", 155, true, null);
-        productList.add(product);
-        product = new Product(122, "Pizza", "SVINGOD (Glutenfri)", "Cheese, tomato sauce, ham and mushroom \nOst, tomatsås, skinka och champinjoner",  "30", "cm", 139, true, null);
-        productList.add(product);
-        product = new Product(123, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs, lök och bacon", "20", "cm", 65, true, null);
-        productList.add(product);
-        product = new Product(124, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs, lök och bacon", "30", "cm", 105, true, null);
-        productList.add(product);
-        product = new Product(125, "Pizza", "PIZZABAKEREN SPECIAL", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs, lök och bacon", "40", "cm", 159, true, null);
-        productList.add(product);
-        product = new Product(126, "Pizza", "PIZZABAKEREN SPECIAL (Glutenfri)", "Cheese, tomato sauce, minced meat, onion and bacon \nOst, tomatsås, köttfärs, lök och bacon", "30", "cm", 139, true, null);
-        productList.add(product);
-        product = new Product(127, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili","20",  "cm", 69, true, null);
-        productList.add(product);
-        product = new Product(128, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili","30",  "cm", 115, true, null);
-        productList.add(product);
-        product = new Product(129, "Pizza", "EL MEXICO", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili","40",  "cm", 165, true, null);
-        productList.add(product);
-        product = new Product(130, "Pizza", "EL MEXICO (Glutenfri)", "Cheese, tomato sauce, strips of marinated chicken, marinated beef, nacho chips, garlic, sweet corn and chili \nOst, tomatsås, marinerad kyckling, marinerad biff, nachoschips, vitlök, majs och chili","30",  "cm", 139, true, null);
-        productList.add(product);
-        product = new Product(131, "Pizza", "FLAMMAN", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños","20",  "cm", 65, true, null);
-        productList.add(product);
-        product = new Product(132, "Pizza", "FLAMMAN", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños", "30", "cm", 105, true, null);
-        productList.add(product);
-        product = new Product(133, "Pizza", "FLAMMAN", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños","40",  "cm", 159, true, null);
-        productList.add(product);
-        product = new Product(134, "Pizza", "FLAMMAN (Glutenfri)", "Cheese, taco sauce, minced meat, nacho chips and jalapeños \nOst, tacosås, köttfärs, nachochips och jalapeños","30",  "cm", 139, true, null);
-        productList.add(product);
-        product = new Product(135, "Pizza", "TACOKYCKLINGEN", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños","20",  "cm", 69, true, null);
-        productList.add(product);
-        product = new Product(136, "Pizza", "TACOKYCKLINGEN", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños","30",  "cm", 115, true, null);
-        productList.add(product);
-        product = new Product(137, "Pizza", "TACOKYCKLINGEN", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños","40",  "cm", 165, true, null);
-        productList.add(product);
-        product = new Product(138, "Pizza", "TACOKYCKLINGEN (Glutenfri)", "Cheese, taco sauce, marinated chicken, nacho chips and jalapeños \nOst, tacosås, marinerad kyckling, nachoschips och jalapeños", "30", "cm", 139, true, null);
-        productList.add(product);
-        product = new Product(211, "Beverages", "CocaCola Classic", null, "0.33", "L", 15, true, 100);
-        productList.add(product);
-        product = new Product(212, "Beverages", "CocaCola Classic", null, "0.5", "L", 25, true, 100);
-        productList.add(product);
-        product = new Product(213, "Beverages", "CocaCola Classic", null, "1.5", "L", 35, true, 100);
-        productList.add(product);
-        product = new Product(214, "Beverages", "REDBULL", null, "0.25", "L", 29, true, 100);
-        productList.add(product);
-        product = new Product(311, "IceCream", "BEN & JERRY'S Classic", null, "0.5", "L", 79, true, 100);
-        productList.add(product);
-        product = new Product(312, "IceCream", "BEN & JERRY'S Core", null, "0.5", "L", 89, true, 100);
-        productList.add(product);
-        product = new Product(411, "Salad", "PIZZASALLAD", null, "250", "g", 15, true, 100);
-        productList.add(product);
-        product = new Product(511, "Sauce", "PB DIPPSÅS", null, "50", "ml", 8, true, 100);
-        productList.add(product);
-        product = new Product(611, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", "20","cm", 10, true, null);
-        productList.add(product);
-        product = new Product(612, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", "30","cm", 15, true, null);
-        productList.add(product);
-        product = new Product(613, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", "40","cm", 20, true, null);
-        productList.add(product);
-        product = new Product(614, "Extras", "Extra Övrigt", "Other", "20","cm", 5, true, null);
-        productList.add(product);
-        product = new Product(615, "Extras", "Extra Övrigt", "Other", "30","cm", 10, true, null);
-        productList.add(product);
-        product = new Product(616, "Extras", "Extra Övrigt", "Other", "40","cm", 15, true, null);
-        productList.add(product);
+        readPizza();
+        readIceCream();
+        readBevarage();
+        readSauce();
+        readSideDish();
+        System.out.println("generateProductCollection 1");
 
-        return productList;
+        Product product;
+        product = new Product(601, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", "20","cm", 10, true, null);
+        productListToDatabase.add(product);
+        product = new Product(602, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", "30","cm", 15, true, null);
+        productListToDatabase.add(product);
+        product = new Product(603, "Extras", "Extra Ost/kött/kyckling", "Extra Cheese/meat/chicken", "40","cm", 20, true, null);
+        productListToDatabase.add(product);
+        product = new Product(604, "Extras", "Extra Övrigt", "Other", "20","cm", 5, true, null);
+        productListToDatabase.add(product);
+        product = new Product(605, "Extras", "Extra Övrigt", "Other", "30","cm", 10, true, null);
+        productListToDatabase.add(product);
+        product = new Product(606, "Extras", "Extra Övrigt", "Other", "40","cm", 15, true, null);
+        productListToDatabase.add(product);
+        product = new Product(701, "Salad", "PIZZASALLAD", null, "250", "g", 15, true, 100);
+        productListToDatabase.add(product);
+
+        System.out.println("generateProductCollection 2");
+
+        for (Product p: productListToDatabase) {
+            System.out.println(p.toString());
+            System.out.println(" ");
+        }
+
+        return productListToDatabase;
     }
 
-    public List<Ingredient> generateTestDataIngredients(){
+    private void readPizza()throws Exception{
+        File file = new File("C:\\Users\\akira\\Documents\\Intellij Projects\\OnlinePizza_JavaFX2\\src\\main\\text\\pizza.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String st;
+        List<String> lines = new ArrayList<>();
+        while ((st = br.readLine()) != null){
+            lines.add(st);
+        }
+        int size = lines.size();
+        Product product;
+        int counter = 0;
+
+        for (int i = 0; i < size; i=i+7) {
+            counter++;
+            product = new Product();
+            product.setProductId(100 + counter);
+            product.setName(lines.get(i));
+            product.setCategory("Pizza");
+            product.setDescription("" + lines.get(i+1) + " \n" + lines.get(i+2));
+            product.setSize("30");
+            product.setUnits("cm");
+            product.setPrice(Integer.valueOf(lines.get(i+4)));
+            product.setAvailable(true);
+            product.setQuantity(null);
+            productListToDatabase.add(product);
+        }
+    }
+
+    private void readIceCream()throws Exception{
+        File file = new File("C:\\Users\\akira\\Documents\\Intellij Projects\\OnlinePizza_JavaFX2\\src\\main\\text\\icecream.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String st;
+        List<String> lines = new ArrayList<>();
+        while ((st = br.readLine()) != null){
+            lines.add(st);
+        }
+        int size = lines.size();
+        Product product;
+        int counter = 0;
+
+        for (int i = 0; i < size; i=i+2) {
+            counter++;
+            product = new Product();
+            product.setProductId(200 + counter);
+            product.setName(lines.get(i));
+            product.setCategory("Ice-cream");
+            product.setDescription("Ben and Jerry's");
+            product.setSize(null);
+            product.setUnits(null);
+            product.setPrice(Integer.valueOf(lines.get(i + 1)));
+            product.setAvailable(true);
+            product.setQuantity(100);
+            productListToDatabase.add(product);
+        }
+    }
+
+    private void readBevarage()throws Exception{
+        File file = new File("C:\\Users\\akira\\Documents\\Intellij Projects\\OnlinePizza_JavaFX2\\src\\main\\text\\beverages.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String st;
+        List<String> lines = new ArrayList<>();
+        while ((st = br.readLine()) != null){
+            lines.add(st);
+        }
+        int size = lines.size();
+        Product product;
+        int counter = 0;
+
+        for (int i = 0; i < size; i=i+4) {
+            counter++;
+            product = new Product();
+            product.setProductId(300 + counter);
+            product.setName(lines.get(i));
+            product.setCategory("Beverages");
+            product.setDescription(null);
+            product.setSize(lines.get(i + 1));
+            product.setUnits(lines.get(i + 2));
+            product.setPrice(Integer.valueOf(lines.get(i + 3)));
+            product.setAvailable(true);
+            product.setQuantity(100);
+            productListToDatabase.add(product);
+        }
+    }
+
+    private void readSauce()throws Exception{
+        File file = new File("C:\\Users\\akira\\Documents\\Intellij Projects\\OnlinePizza_JavaFX2\\src\\main\\text\\sauce.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String st;
+        List<String> lines = new ArrayList<>();
+        while ((st = br.readLine()) != null){
+            lines.add(st);
+        }
+        int size = lines.size();
+        Product product;
+        int counter = 0;
+
+        for (int i = 0; i < size; i=i+2) {
+            counter++;
+            product = new Product();
+            product.setProductId(400 + counter);
+            product.setName(lines.get(i));
+            product.setCategory("Sauce");
+            product.setDescription(null);
+            product.setSize(null);
+            product.setUnits(null);
+            product.setPrice(Integer.valueOf(lines.get(i + 1)));
+            product.setAvailable(true);
+            product.setQuantity(100);
+            productListToDatabase.add(product);
+        }
+    }
+
+    private void readSideDish()throws Exception{
+        File file = new File("C:\\Users\\akira\\Documents\\Intellij Projects\\OnlinePizza_JavaFX2\\src\\main\\text\\side_dish.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String st;
+        List<String> lines = new ArrayList<>();
+        while ((st = br.readLine()) != null){
+            lines.add(st);
+        }
+        int size = lines.size();
+        Product product;
+        int counter = 0;
+
+        for (int i = 0; i < size; i=i+2) {
+            counter++;
+            product = new Product();
+            product.setProductId(500 + counter);
+            product.setName(lines.get(i));
+            product.setCategory("Side Dish");
+            product.setDescription(null);
+            product.setSize(null);
+            product.setUnits(null);
+            product.setPrice(Integer.valueOf(lines.get(i + 1)));
+            product.setAvailable(true);
+            product.setQuantity(100);
+            productListToDatabase.add(product);
+        }
+    }
+
+    public List<Ingredient> generateIngredientCollection(){
         List<Ingredient> ingredientList = new ArrayList<>();
 
         Ingredient ingredient = new Ingredient(131, "Red paprika", "package 5 kg", 10, "kg");
@@ -305,8 +393,6 @@ public class MainController {
         setCartLine("");
         setCartLineList(null);
         getOrderLineList().clear();
-        getProductsExtraCMC().clear();
-        getProductsExtraOther().clear();
         setTotalPrice(0.0);
     }
 

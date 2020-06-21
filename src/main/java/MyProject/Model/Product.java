@@ -88,7 +88,11 @@ public class Product {
     }
 
     public String getSize() {
-        return size;
+        if(size == null){
+            return "";
+        }else{
+            return size;
+        }
     }
 
     public void setSize(String size) {
@@ -96,7 +100,11 @@ public class Product {
     }
 
     public String getUnits() {
-        return units;
+        if(units == null){
+            return "";
+        }else{
+            return units;
+        }
     }
 
     public void setUnits(String units) {

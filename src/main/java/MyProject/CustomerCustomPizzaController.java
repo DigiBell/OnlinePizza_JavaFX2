@@ -47,8 +47,9 @@ public class CustomerCustomPizzaController {
         double price = productSelected.getPrice();
         if(extra_cmc){
             details = details + "(Extra Ost/Kött/Kyckling";
+            System.out.println("(Extra Ost/Kött/Kyckling");
             for (Product product: mainController.getProductsExtraCMC()) {
-                System.out.println(product.toString());
+                System.out.println("(Extra Ost/Kött/Kyckling" + product.toString());
 
                 if(product.getSize().equals(productSelected.getSize())){
                     System.out.println("Size:" + productSelected.getSize());
@@ -75,8 +76,16 @@ public class CustomerCustomPizzaController {
         orderLine.setProductId(productSelected.getProductId());
         orderLine.setProductName(productSelected.getName());
         orderLine.setProductCategory(productSelected.getCategory());
-        orderLine.setDetails(details);
-        orderLine.setComment(comment);
+        if(details.trim().isEmpty()){
+            orderLine.setDetails(null);
+        }else{
+            orderLine.setDetails(details);
+        }
+        if(comment.trim().isEmpty()){
+            orderLine.setComment(null);
+        }else{
+            orderLine.setComment(comment);
+        }
         orderLine.setTotalPrice(price);
 
         String cartLine = "" + orderLine.getProductName() + orderLine.getDetails() + "price: " + orderLine.getTotalPrice();

@@ -58,15 +58,15 @@ public class MongoDBController {
         database = mongoClient.getDatabase("OnlinePizza");
     }
 
-//    public static void main(String[] args){
-//        deleteCollections();
-//        createCollections();
-//
-//        sendProducts();
-//        sendAccount(mainController.generateManager());
-//        sendIngredients();
-//    }
 
+    public void initializeDatabase(){
+        deleteCollections();
+        createCollections();
+
+        sendProducts();
+        sendIngredients();
+        sendAccount(mainController.generateManager());
+    }
 
     //DELETE COLLECTIONS
     private static void deleteCollections() {
@@ -89,7 +89,9 @@ public class MongoDBController {
     //SEND PRODUCTS
     private static void sendProducts() {
         MongoCollection<Product> products = database.getCollection("Products", Product.class);
-        products.insertMany(mainController.generateTestData());//Products
+        try{
+            products.insertMany(mainController.generateProductCollection());//Products
+        }catch (Exception e){ }
     }
 
     //GET PRODUCTS
@@ -106,7 +108,7 @@ public class MongoDBController {
     //SEND INGREDIENTS
     private static void sendIngredients() {
         MongoCollection<Ingredient> ingredients = database.getCollection("Ingredients", Ingredient.class);
-        ingredients.insertMany(mainController.generateTestDataIngredients());
+        ingredients.insertMany(mainController.generateIngredientCollection());
     }
 
     //GET INGREDIENTS
